@@ -1,0 +1,34 @@
+@import "./colors";
+
+.bg-primary {
+  @include bg-primary;
+}
+.bg-secondary {
+  @include bg-secondary;
+}
+
+@mixin btn {
+  @apply rounded-full min-w-[125px] text-white font-bold hover:brightness-125 duration-200 shadow-xl;
+}
+
+.btn__primary {
+  @include bg-primary;
+  @include btn;
+}
+.btn__secondary {
+  @include bg-secondary;
+  @include btn;
+}
+.btn__tertiary {
+  @apply bg-transparent border-transparent border border-slate-900 p-3 rounded-full min-w-[125px] text-slate-900 font-bold hover:bg-slate-300 hover:shadow-inner hover:border-transparent duration-200 shadow-xl;
+}
+
+.btn__small {
+  @apply p-1 px-2 text-sm;
+}
+.btn__standard {
+  @apply p-3 px-5 text-base;
+}
+.btn__big {
+  @apply p-5 px-10 text-lg;
+}

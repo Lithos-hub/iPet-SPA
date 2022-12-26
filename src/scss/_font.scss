@@ -1,0 +1,10 @@
+* {
+  font-family: Roboto;
+}
+
+.text__primary {
+  @apply text-pink-500;
+}
+.text__secondary {
+  @apply text-indigo-500;
+}
