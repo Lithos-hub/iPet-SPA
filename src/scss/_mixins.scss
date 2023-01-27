@@ -1,0 +1,16 @@
+@mixin bg_primary {
+  @apply bg-gradient-to-r from-pink-600 to-indigo-600;
+}
+@mixin bg_secondary {
+  @apply bg-gradient-to-r from-teal-600 to-blue-600;
+}
+@mixin bg_tertiary {
+  @apply bg-gradient-to-r from-gray-600 to-stone-600;
+}
+
+@mixin bg_primary--shinny {
+  @apply bg-gradient-to-r from-pink-400 to-indigo-400;
+}
+@mixin bg_secondary--shinny {
+  @apply bg-gradient-to-r from-teal-400 to-blue-400;
+}

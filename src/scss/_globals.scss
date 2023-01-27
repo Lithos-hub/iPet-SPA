@@ -1,0 +1,32 @@
+body,
+html {
+  @apply bg-gradient-to-r bg-slate-100;
+}
+
+h1 {
+  @apply text-4xl font-medium;
+}
+
+h2 {
+  @apply text-3xl font-medium;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+h4 {
+  @apply text-xl;
+}
+
+h5 {
+  @apply text-lg font-light;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}

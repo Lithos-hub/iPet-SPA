@@ -1,0 +1,188 @@
+{
+    "LANDING": {
+        "subtitle": "Keeping a periodic control of your pets is important, since it allows you, in addition to an optimal care and health of your four-legged friend 😺🐶, a better organization of your schedule 🚀🗓️",
+        "get_started": "Get started for free",
+        "have_account": "I have an account",
+        "title_1": "100% free and multiplatform",
+        "subtitle_1": "iPet is free of charge, and will be available for web, android and iOS.",
+        "title_2": "Easy to use",
+        "subtitle_2": "iPet has a modern and intuitive user interface.",
+        "title_3": "Manage and control",
+        "subtitle_3": "Control your pet's health, medical appointments, documents, contacts and much more.",
+        "title_4": "iPet SOS",
+        "subtitle_4": "iPet integrates an additional service to report possible cases of abuse, disappearances or abandonment of animals.",
+        "final": "Give your pet the care it deserves"
+    },
+    "UI": {
+        "SPINNER": {
+            "loading": "Loading..."
+        },
+        "SIDEMENU": {
+            "my-pets": "My pets",
+            "calendar": "Calendar",
+            "my-agenda": "My agenda"
+        },
+        "MODAL": {
+            "close": "Close",
+            "accept": "Accept",
+            "CRUD": {
+                "title": "Select an action",
+                "delete": "Delete",
+                "edit": "Edit"
+            },
+            "NOTIFICATION": {
+                "title": "Atention!"
+            }
+        },
+        "ALERT_MESSAGE": {
+            "generic": "There are one or more errors in the form",
+            "SUCCESS": {
+                "user_login": "You logged in successfully!",
+                "user_join": "Congratulations! Your account was created successfully",
+                "user_update": "Your account was updated successfully!",
+                "user_reset": "We sent you an email in order to reset your password"
+            },
+            "ERROR": {
+                "user_login": "Error when logging in. Check your data and try it again",
+                "user_join": "Error when registering your acccount. Check your data and try it again",
+                "user_update": "An error occurred when updating your account. Check your data and try it again",
+                "user_reset": "Error when trying to send you an email to reset your password. Check if it is correct."
+            }
+        },
+        "JOIN_LOGIN_RESET": {
+            "join": "Join",
+            "login": "Login",
+            "reset": "Reset password",
+            "submit": "Submit",
+            "email": "Email",
+            "email_placeholder": "example@domain.com",
+            "password": "Password",
+            "rep_password": "Repeat password",
+            "forgot_password": "Forgot password?"
+        },
+        "LANG": {
+            "es": "Spanish",
+            "en": "English"
+        },
+        "ERRORS": {
+            "email_format": "The email format is incorrect",
+            "pass_match": "The passwords don't mach",
+            "pass_contain": "The password must contain at least: 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 symbol",
+            "pet_name": "Name is required",
+            "pet_breed": "Breed is required",
+            "pet_birthday": "Birthday is required",
+            "pet_color": "Color is required"
+        },
+        "DATES": {
+            "year_one": "{{count}} year",
+            "year_other": "{{count}} years",
+            "month_one": "{{count}} month",
+            "month_other": "{{count}} months"
+        }
+    },
+    "PET_DETAILS": {
+        "title": "Pet's details"
+    },
+    "PETS": {
+        "CREATE": "Add pet",
+        "EDIT": "Edit pet",
+        "DELETE": "Delete pet",
+        "title": "My pets",
+        "unknown": "Unknown",
+        "name": "Name",
+        "name_placeholder": "Pet's name",
+        "weight": "Weight",
+        "weight_placeholder": "Pet's weight",
+        "weight_measure": "Unit",
+        "weight_measure_placeholder": "Weight measure unit",
+        "specie": "Specie",
+        "specie_placeholder": "Pet's specie",
+        "breed": "Breed",
+        "breed_placeholder": "Pet's breed",
+        "color": "Color",
+        "color_placeholder": "Hair's color",
+        "sex": "Sex",
+        "female": "Female",
+        "male": "Male",
+        "age": "Age",
+        "dog": "Dog",
+        "cat": "Cat",
+        "label_kg": "KG",
+        "label_lbs": "LBS",
+        "kg_one": "{{count}} kg",
+        "kg_other": "{{count}} kgs",
+        "lbs_one": "{{count}} lb",
+        "lbs_other": "{{count}} lbs",
+        "birthday": "Pet's birthday",
+        "createdAt": "Registering date",
+        "allergies": "Allergies",
+        "allergies_placeholder": "Chicken, dust... etc.",
+        "spaying_neutering_status": "Spaying/Neutering done",
+        "spaying": "Spayed / Neutered",
+        "yes": "Yes",
+        "no": "No",
+        "image": "Image",
+        "image_placeholder": "Select an image",
+        "no_data": "You have not registered any pet yet! Click on the 'Add pet' button to start",
+        "action_details": "Show more",
+        "action_edit": "Edit",
+        "action_delete": "Delete"
+    },
+    "CALENDAR": {
+        "CREATE": "Add event",
+        "EDIT": "Edit event",
+        "title": "Calendar",
+        "start_date": "Start date",
+        "end_date": "End date",
+        "event_title": "Title",
+        "event_desc": "Description",
+        "UI": {
+            "allDay": "All day",
+            "previous": "<",
+            "next": ">",
+            "today": "Today",
+            "month": "Month",
+            "week": "Week",
+            "day": "Day",
+            "agenda": "Agenda",
+            "date": "Date",
+            "time": "Time",
+            "event": "Event",
+            "noEventsInRange": "No events in range",
+            "showMore": "+ Show more "
+        }
+    },
+    "AGENDA": {
+        "title": "My agenda",
+        "vets": "My vets",
+        "contacts": "My contacts",
+        "notes": "My notes",
+        "save": "Save",
+        "add": "Add new row",
+        "actions": "Actions",
+        "VETS": {
+            "name": "Name",
+            "contact_phone": "Contact phone",
+            "emergency_phone": "Emergency phone",
+            "city": "City",
+            "name_placeholder": "Clinic or hospital name",
+            "contact_phone_placeholder": "+00 000 00 00 00",
+            "emergency_phone_placeholder": "+00 000 00 00 00",
+            "city_placeholder": "Center's city",
+            "no_data": "You have no vets centers registered yet! Fill the form from above and click on the Save button"
+        },
+        "CONTACTS": {
+            "name": "Name",
+            "contact_phone": "Contact phone",
+            "contact_phone_2": "Contact phone (2)",
+            "city": "City",
+            "email": "Email",
+            "name_placeholder": "Contact name",
+            "contact_phone_placeholder": "+00 000 00 00 00",
+            "contact_phone_2_placeholder": "+00 000 00 00 00",
+            "city_placeholder": "Contact's city",
+            "email_placeholder": "example@domain.com",
+            "no_data": "You have no contacts registered yet! Fill the form from above and click on the Save button"
+        }
+    }
+}

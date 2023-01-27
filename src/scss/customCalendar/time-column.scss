@@ -1,0 +1,116 @@
+@import "./variables";
+
+.rbc-time-column {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  gap: 5px;
+
+  .rbc-timeslot-group {
+    @apply p-5;
+    flex: 1;
+  }
+}
+
+.rbc-timeslot-group {
+  @apply rounded-xl m-1 shadow-md min-h-[100px] min-w-[100px] relative;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.rbc-label {
+  @apply text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+.rbc-day-slot {
+  position: relative;
+
+  .rbc-events-container {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    top: 0;
+
+    &.rbc-rtl {
+      left: 10px;
+      right: 0;
+    }
+  }
+
+  .rbc-event {
+    @apply shadow-md;
+    display: flex;
+    max-height: 100%;
+    min-height: 25px;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  .rbc-background-event {
+    @extend .rbc-event;
+    opacity: 0.75;
+  }
+
+  .rbc-event-label {
+    flex: none;
+    width: auto;
+  }
+
+  .rbc-event-content {
+    width: 100%;
+    flex: 1 1 0;
+    word-wrap: break-word;
+    line-height: 1;
+    height: 100%;
+    min-height: 1em;
+  }
+
+  .rbc-time-slot {
+    @apply border-t border-slate-200;
+  }
+}
+
+.rbc-time-view-resources {
+  .rbc-time-gutter,
+  .rbc-time-header-gutter {
+    position: sticky;
+    left: 0;
+    background-color: white;
+    border-right: 1px solid $cell-border;
+    z-index: 10;
+    margin-right: -1px;
+  }
+
+  .rbc-time-header {
+    overflow: hidden;
+    margin-left: 20px;
+  }
+
+  .rbc-time-header-cell-single-day {
+    display: none;
+  }
+
+  .rbc-day-slot {
+    min-width: 140px;
+  }
+}
+
+.rbc-time-header-content + .rbc-time-header-content {
+  margin-left: -1px;
+}
+
+.rbc-time-slot {
+  flex: 1 0 0;
+
+  &.rbc-now {
+    font-weight: bold;
+  }
+}
+
+.rbc-day-header {
+  text-align: center;
+}

@@ -1,0 +1,28 @@
+@import "./mixins";
+
+.bg-primary__static {
+  @include bg_primary--shinny;
+  background-size: 200% 200%;
+  background-attachment: fixed;
+}
+
+.bg-primary__motion {
+  @include bg-secondary--shinny;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  animation: motion 1s ease-in-out infinite alternate;
+}
+
+.disabled {
+  @apply text-gray-500 bg-gray-200;
+}
+
+@keyframes motion {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 300% 100%;
+    filter: hue-rotate(120deg);
+  }
+}

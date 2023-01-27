@@ -1,0 +1,11 @@
+@import "mixins";
+
+.bg-primary {
+  @include bg-primary;
+}
+.bg-secondary {
+  @include bg-secondary;
+}
+.bg-tertiary {
+  @include bg-tertiary;
+}

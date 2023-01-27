@@ -1,0 +1,189 @@
+{
+    "LANDING": {
+        "subtitle": "Llevar un control periódico de tus mascotas es importante, ya que te permite, además de un óptimo cuidado y salud de tu amigo de cuatro patas 😺🐶, una mejor organización de tu agenda 🚀🗓️",
+        "get_started": "Registrarme gratis",
+        "have_account": "Ya tengo una cuenta",
+        "title_1": "100% gratis y multiplataforma",
+        "subtitle_1": "iPet es gratis, y estará disponible para la web, android o iOS.",
+        "title_2": "Fácil de usar",
+        "subtitle_2": "iPet cuenta con una interfaz moderna e intuitiva.",
+        "title_3": "Gestiona y controla",
+        "subtitle_3": "Controla la salud de tu mascota, citas médicas, documentos, contactos y mucho más.",
+        "title_4": "iPet SOS",
+        "subtitle_4": "iPet integra un servicio adicional para denunciar posibles casos de maltrato animal, desapaiciones o abandonos de animales.",
+        "final": "Dale a tu mascota el cuidado que se merece"
+    },
+    "UI": {
+        "SPINNER": {
+            "loading": "Cargando..."
+        },
+        "SIDEMENU": {
+            "my-pets": "Mis mascotas",
+            "calendar": "Calendario",
+            "my-agenda": "Mi agenda"
+        },
+        "MODAL": {
+            "close": "Cerrar",
+            "accept": "Aceptar",
+            "CRUD": {
+                "title": "Selecciona una acción",
+                "delete": "Borrar",
+                "edit": "Editar"
+            },
+            "NOTIFICATION": {
+                "title": "¡Atención!"
+            }
+        },
+        "ALERT_MESSAGE": {
+            "generic": "Hay uno o más errores en el formulario",
+            "SUCCESS": {
+                "user_login": "¡Sesión iniciada con éxito!",
+                "user_join": "¡Enhorabuena! Tu cuenta ha sido creada correctamente",
+                "user_update": "¡Tu cuenta ha sido actualizada con éxito!",
+                "user_reset": "Hemos mandado un correo electrónico a tu email para resetear la contraseña"
+            },
+            "ERROR": {
+                "user_login": "Se produjo un error al iniciar sesión. Revisa tus datos e inténtalo de nuevo",
+                "user_join": "Se produjo un error al crear una cuenta. Revisa tus datos e inténtalo de nuevo",
+                "user_update": "Se produjo un error al actualizar tus datos. Revisa tus datos e inténtalo de nuevo",
+                "user_reset": "Error al mandar un correo electrónico a tu email. Revisa si es correcto."
+            }
+        },
+        "JOIN_LOGIN_RESET": {
+            "join": "Crear una cuenta",
+            "login": "Acceder",
+            "reset": "Cambiar contraseña",
+            "submit": "Enviar",
+            "email": "Correo electrónico",
+            "email_placeholder": "ejemplo@dominio.com",
+            "password": "Contraseña",
+            "rep_password": "Repetir contraseña",
+            "forgot_password": "¿Has olvidado tu contraseña?"
+        },
+        "LANG": {
+            "es": "Español",
+            "en": "Inglés"
+        },
+        "ERRORS": {
+            "email_format": "El formato del email es incorrecto",
+            "pass_match": "Las contraseñas no coinciden",
+            "pass_contain": "La contraseña debe contener al menos: 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 símbolo",
+            "pet_name": "El nombre es obligatorio",
+            "pet_breed": "La raza es obligatoria",
+            "pet_birthday": "La fecha de nacimiento es obligatoria",
+            "pet_color": "El color es obligatorio"
+        },
+        "DATES": {
+            "year_one": "{{count}} año",
+            "year_other": "{{count}} años",
+            "month_one": "{{count}} mes",
+            "month_other": "{{count}} meses"
+        }
+    },
+    "PET_DETAILS": {
+        "title": "Detalle de la mascota"
+    },
+    "PETS": {
+        "CREATE": "Añadir mascota",
+        "EDIT": "Editar mascota",
+        "DELETE": "Eliminar mascota",
+        "title": "Mis mascotas",
+        "unknown": "Desconocido",
+        "name": "Nombre",
+        "name_placeholder": "Nombre de la mascota",
+        "weight": "Peso",
+        "weight_placeholder": "Peso de la mascota",
+        "weight_measure": "Unidad",
+        "weight_measure_placeholder": "Unidad de peso",
+        "specie": "Especie",
+        "specie_placeholder": "Especie de la mascota",
+        "breed": "Raza",
+        "breed_placeholder": "Raza o mezcla de la mascota",
+        "color": "Color",
+        "color_placeholder": "Color del pelo",
+        "sex": "Sexo",
+        "female": "Hembra",
+        "male": "Macho",
+        "dog": "Perro",
+        "cat": "Gato",
+        "age": "Edad",
+        "label_kg": "Kilo",
+        "label_lbs": "Libra",
+        "kg_one": "{{count}} kilo",
+        "kg_other": "{{count}} kilos",
+        "lbs_one": "{{count}} libra",
+        "lbs_other": "{{count}} libras",
+        "birthday": "Fecha de nacimiento de la mascota",
+        "createdAt": "Fecha de registro",
+        "allergies": "Alergias",
+        "allergies_placeholder": "Pollo, polvo... etc.",
+        "spaying_neutering_status": "Castración/Esterilización realizada",
+        "spaying": "Castrado/Esterilizado",
+        "yes": "Si",
+        "no": "No",
+        "image": "Imagen",
+        "image_placeholder": "Seleccionar una imagen",
+        "no_data": "¡Todavía no has registrado una mascota! Pulsa en el botón de 'Añadir mascota' para empezar",
+        "no_pet_details": "La mascota que estás intentando visualizar no existe en nuestra base de datos",
+        "action_details": "Ver más",
+        "action_edit": "Editar",
+        "action_delete": "Eliminar"
+    },
+    "CALENDAR": {
+        "CREATE": "Añadir evento",
+        "EDIT": "Editar evento",
+        "title": "Calendario",
+        "start_date": "Fecha inicio",
+        "end_date": "Fecha fin",
+        "event_title": "Título",
+        "event_desc": "Descripción",
+        "UI": {
+            "allDay": "Todo el día",
+            "previous": "<",
+            "next": ">",
+            "today": "Hoy",
+            "month": "Mes",
+            "week": "Semana",
+            "day": "Día",
+            "agenda": "Agenda",
+            "date": "Fecha",
+            "time": "Hora",
+            "event": "Evento",
+            "noEventsInRange": "No hay eventos en este rango",
+            "showMore": "+ Ver más "
+        }
+    },
+    "AGENDA": {
+        "title": "Mi agenda",
+        "vets": "Mis veterinarios",
+        "contacts": "Mis contactos",
+        "notes": "Mis notas",
+        "save": "Guardar",
+        "add": "Añadir nueva fila",
+        "actions": "Acciones",
+        "VETS": {
+            "name": "Nombre",
+            "contact_phone": "Teléfono de contacto",
+            "emergency_phone": "Teléfono de emergencias",
+            "city": "Ciudad",
+            "name_placeholder": "Nombre de la clínica u hospital",
+            "contact_phone_placeholder": "+00 000 00 00 00",
+            "emergency_phone_placeholder": "+00 000 00 00 00",
+            "city_placeholder": "Ciudad del centro",
+            "no_data": "¡No tienes centros veterinarios registrados! Rellena el formulario superior y pulsa sobre el botón de Guardar"
+        },
+        "CONTACTS": {
+            "name": "Nombre",
+            "contact_phone": "Teléfono de contacto",
+            "contact_phone_2": "Teléfono de contacto (2)",
+            "city": "Ciudad",
+            "email": "Correo electrónico",
+            "name_placeholder": "Nombre del contacto",
+            "contact_phone_placeholder": "+00 000 00 00 00",
+            "contact_phone_2_placeholder": "+00 000 00 00 00",
+            "city_placeholder": "Ciudad del contacto",
+            "email_placeholder": "ejemplo@dominio.com",
+            "no_data": "¡No tienes contactos registrados! Rellena el formulario superior y pulsa sobre el botón de Guardar"
+        }
+    }
+}
