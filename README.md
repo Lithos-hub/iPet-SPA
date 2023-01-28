@@ -6,10 +6,10 @@ iPet is a web application for veterinary management, time and registration of in
 
 The idea is to develop a series of such applications in the future:
 
-🐶 iPet (pets management)
-👨🏻‍⚕️ iVet (management for veterinary centers)
-🆘 iPet SOS (to report possible cases of animal abuse, disappearances, etc.)
-🏠 iShelter (management for animal shelters)
+- 🐶 iPet (pets management)
+- 👨🏻‍⚕️ iVet (management for veterinary centers)
+- 🆘 iPet SOS (to report possible cases of animal abuse, disappearances, etc.)
+- 🏠 iShelter (management for animal shelters)
 
 ## Stack
 
