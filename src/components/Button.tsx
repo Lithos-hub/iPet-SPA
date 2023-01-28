@@ -1,8 +1,8 @@
-import { ButtonVariant } from "../types/ButtonVariant";
-import PropTypes from "prop-types";
+import { FC } from "react";
+import { ButtonVariant } from "@/models/types/ButtonVariant";
 
-interface Props {
-  variant: ButtonVariant;
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
   icon?: any;
   title?: string;
   size?: "small" | "standard" | "big";
@@ -11,7 +11,7 @@ interface Props {
   onClick?: React.MouseEventHandler;
 }
 
-export const Button = ({
+export const Button: FC<Props> = ({
   title,
   variant,
   size = "standard",
@@ -19,7 +19,8 @@ export const Button = ({
   icon,
   onClick,
   disabled = false,
-}: Props) => {
+  ...rest
+}) => {
   const buttonSize = {
     small: "btn__small",
     standard: "btn__standard",
@@ -27,6 +28,7 @@ export const Button = ({
   };
   return (
     <button
+      {...rest}
       onClick={onClick}
       type={type}
       disabled={disabled}
@@ -38,7 +40,9 @@ export const Button = ({
         (variant === "icon" && "btn__icon") ||
         (variant === "disabled" && "btn__disabled") ||
         (variant === "icon_transparent" && "btn__icon--transparent")
-      } ${buttonSize[size as keyof typeof buttonSize]}`}
+      }
+      ${rest.className} 
+      ${buttonSize[size as keyof typeof buttonSize]}`}
     >
       {title ? (
         <span>{title}</span>
@@ -50,8 +54,3 @@ export const Button = ({
     </button>
   );
 };
-
-// Button.propTypes = {
-//   title: PropTypes.string,
-//   variant: PropTypes.string.isRequired,
-// };

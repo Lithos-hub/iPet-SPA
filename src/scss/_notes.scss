@@ -1,0 +1,7 @@
+.post-it {
+  clip-path: polygon(100% 0, 100% 78%, 84% 100%, 0 100%, 0 0);
+}
+
+.post-it__wrapper {
+  filter: drop-shadow(-5px 10px 7px #3030308a);
+}

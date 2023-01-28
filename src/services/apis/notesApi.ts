@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Note } from "../../models/interfaces/Note";
 
 export const notesApi = createApi({
   reducerPath: "notes",
@@ -25,17 +24,16 @@ export const notesApi = createApi({
     }),
     updateNote: builder.mutation({
       query: (body) => ({
-        url: `user/note/${body._id}`,
+        url: `user/note/${body.id}`,
         method: "PUT",
         body,
       }),
       invalidatesTags: ["Note"],
     }),
     deleteNote: builder.mutation({
-      query: (body) => ({
-        url: `user/note/${body._id}`,
+      query: (id: number) => ({
+        url: `user/note/${id}`,
         method: "DELETE",
-        body,
       }),
       invalidatesTags: ["Note"],
     }),

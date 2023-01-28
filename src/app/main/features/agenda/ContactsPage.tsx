@@ -39,7 +39,7 @@ export const ContactsPage = () => {
         <div className="p-3">
           <TableForm defineCol={defineCol} category="contacts" />
         </div>
-        <hr className="border border-pink-200 my-10" />
+        <hr className="border border-pink-200 my-5" />
         <div className="shadow-xl p-3">
           <Table defineCol={defineCol} category="contacts" />
         </div>

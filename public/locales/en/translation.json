@@ -183,6 +183,11 @@
             "city_placeholder": "Contact's city",
             "email_placeholder": "example@domain.com",
             "no_data": "You have no contacts registered yet! Fill the form from above and click on the Save button"
+        },
+        "NOTES": {
+            "description": "Description *",
+            "description_placeholder": "Note description *",
+            "no_data": "You have no notes registered yet! Fill the form from above and click on the Save button"
         }
     }
 }

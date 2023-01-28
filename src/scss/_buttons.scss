@@ -1,7 +1,7 @@
 @import "./mixins";
 
 @mixin btn {
-  @apply rounded-full min-w-[125px] text-white font-bold hover:brightness-125 duration-200 shadow-xl;
+  @apply rounded-xl w-auto px-5 text-white font-bold hover:brightness-125 duration-200 shadow-xl;
 }
 
 .btn__primary {

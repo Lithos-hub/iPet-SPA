@@ -56,16 +56,16 @@ export const Table = ({
           </div>
         ))
       ) : category === "notes" && notesData.length > 0 ? (
-        notesData.map((item: Contact, index: number) => (
-          <div key={index} className="my-1">
+        <div className="my-1 grid grid-cols-4 gap-5">
+          {notesData.map((item: Contact, index: number) => (
             <TableRow
               data={item}
               defineCol={defineCol}
               category={category}
               rowIndex={index + 1}
             />
-          </div>
-        ))
+          ))}
+        </div>
       ) : (
         <NoDataMessage
           message={t(`AGENDA.${category.toUpperCase()}.no_data`) as string}

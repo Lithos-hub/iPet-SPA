@@ -4,4 +4,5 @@ export type ButtonVariant =
   | "tertiary"
   | "icon"
   | "disabled"
+  | "danger"
   | "icon_transparent";

@@ -162,7 +162,7 @@
         "add": "Añadir nueva fila",
         "actions": "Acciones",
         "VETS": {
-            "name": "Nombre",
+            "name": "Nombre *",
             "contact_phone": "Teléfono de contacto",
             "emergency_phone": "Teléfono de emergencias",
             "city": "Ciudad",
@@ -170,10 +170,10 @@
             "contact_phone_placeholder": "+00 000 00 00 00",
             "emergency_phone_placeholder": "+00 000 00 00 00",
             "city_placeholder": "Ciudad del centro",
-            "no_data": "¡No tienes centros veterinarios registrados! Rellena el formulario superior y pulsa sobre el botón de Guardar"
+            "no_data": "¡No tienes centros veterinarios registrados! Rellena el formulario superior y pulsa sobre el botón"
         },
         "CONTACTS": {
-            "name": "Nombre",
+            "name": "Nombre *",
             "contact_phone": "Teléfono de contacto",
             "contact_phone_2": "Teléfono de contacto (2)",
             "city": "Ciudad",
@@ -183,7 +183,12 @@
             "contact_phone_2_placeholder": "+00 000 00 00 00",
             "city_placeholder": "Ciudad del contacto",
             "email_placeholder": "ejemplo@dominio.com",
-            "no_data": "¡No tienes contactos registrados! Rellena el formulario superior y pulsa sobre el botón de Guardar"
+            "no_data": "¡No tienes contactos registrados! Rellena el formulario superior y pulsa sobre el botón"
+        },
+        "NOTES": {
+            "description": "Descripción *",
+            "description_placeholder": "Descripción de la nota *",
+            "no_data": "¡No tienes notas registradas! Rellena el formulario superior y pulsa sobre el botón"
         }
     }
 }
