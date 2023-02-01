@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 const colors = [
   "bg-neutral-500",
   "bg-red-500",
@@ -13,23 +15,35 @@ const colors = [
   "bg-rose-500",
 ];
 
-type Props = {
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   activeColor: string;
-  onColorClick: Function;
-};
+  onColorClick: (color: string) => void;
+}
 
-export const ColorPicker = ({ activeColor, onColorClick }: Props) => {
+export const ColorPicker: FC<Props> = ({
+  activeColor,
+  onColorClick,
+  ...rest
+}: Props) => {
   return (
-    <ul className="grid grid-cols-12 justify-between w-full">
+    <div className="grid grid-cols-6 gap-5 items-center justify-center w-full mt-5 shadow-xl p-5 rounded-xl">
       {colors.map((color, index) => (
-        <li
-          key={index}
-          onClick={() => onColorClick(color)}
-          className={`${color} h-[45px] aspect-square p-5 rounded-full shadow-xl cursor-pointer hover:scale-105 hover:brightness-125 duration-200 ${
-            activeColor === color ? "border-2 border-black" : ""
-          }`}
-        />
+        <div key={index} className="mx-auto">
+          <input
+            {...rest}
+            id="hosting-color"
+            type="radio"
+            className="hidden"
+            value={color}
+          />
+          <div
+            className={`${color} h-[50px] w-[50px] p-3 rounded-full 
+        shadow-xl cursor-pointer hover:scale-105 hover:brightness-125 duration-100 
+        ${activeColor === color ? "border-2 border-slate-900" : ""}`}
+            onClick={() => onColorClick(color)}
+          />
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };

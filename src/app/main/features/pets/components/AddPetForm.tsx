@@ -132,13 +132,14 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
             };
             await updatePet(data as Pet_Backend);
           } else {
-            const { data }: { data: Pet_Backend } = (await createPet(
-              dataToBackend as Pet
-            )) as { data: Pet_Backend };
+            const { data } = (await createPet(dataToBackend as Pet)) as {
+              data: Pet_Backend;
+            };
+            console.log("Created data: ", data);
             if (fileState) {
               const fileResponse = (await FILE_API.uploadFile({
                 file: fileState as File,
-                pet_id: (data as Pet_Backend).id as string,
+                pet_id: data.id as string,
               })) as File_Backend;
               await updatePet({
                 ...data,
@@ -151,7 +152,14 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
           resetForm();
         }}
       >
-        {({ values, errors, handleChange, handleBlur, handleSubmit }) => (
+        {({
+          values,
+          errors,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          getFieldProps,
+        }) => (
           <form
             ref={formRef}
             onSubmit={handleSubmit}
@@ -199,7 +207,6 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                           {(fileState as File).name}
                         </small>
                       ) : (
-                        // <span>{t("PETS.image_placeholder")}</span>
                         <img
                           src="../img/no-image.png"
                           className="h-[100px] mx-auto"
@@ -213,25 +220,22 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
             <div className="col-span-2 flex flex-col gap-5">
               <div className="grid grid-cols-2 gap-5">
                 <Input
+                  {...getFieldProps(values.name)}
                   label={t("PETS.name")}
-                  placeholder={t("PETS.name_placeholder")}
+                  placeholder={t("PETS.name_placeholder") as string}
                   type="text"
                   bordered
                   name="name"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
                   value={values.name}
                   hasError={!!errors.name}
                   errorMessage={t(`${errors.name}`) as string}
                 />
                 <Select
+                  {...getFieldProps(values.specie)}
                   label={t("PETS.specie")}
                   placeholder={t("PETS.specie_placeholder") as string}
                   bordered
                   name="specie"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.specie}
                   data={[
                     {
                       text: onTranslate("dog"),
@@ -248,24 +252,22 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
               </div>
               <div className="grid grid-cols-2 gap-5">
                 <Input
+                  {...getFieldProps(values.breed)}
                   label={t("PETS.breed")}
-                  placeholder={t("PETS.breed_placeholder")}
+                  placeholder={t("PETS.breed_placeholder") as string}
                   type="text"
                   bordered
-                  name="breed"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
                   value={values.breed}
+                  name="breed"
                 />
                 <Input
+                  {...getFieldProps(values.color)}
                   label={t("PETS.color")}
-                  placeholder={t("PETS.color_placeholder")}
+                  placeholder={t("PETS.color_placeholder") as string}
                   type="text"
                   bordered
-                  name="color"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
                   value={values.color}
+                  name="color"
                   hasError={!!errors.color}
                   errorMessage={t(`${errors.color}`) as string}
                 />
@@ -299,25 +301,22 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
             <div className="flex flex-col gap-5">
               <div className="grid grid-cols-2 gap-5">
                 <Input
+                  {...getFieldProps(values.weight)}
                   label={t("PETS.weight")}
-                  placeholder={t("PETS.weight_placeholder")}
+                  placeholder={t("PETS.weight_placeholder") as string}
                   type="number"
                   bordered
                   name="weight"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
                   value={values.weight}
                   hasError={!!errors.weight}
                   errorMessage={t(`${errors.weight}`) as string}
                 />
                 <Select
+                  {...getFieldProps(values.weight_measure)}
                   label={t("PETS.weight_measure")}
                   placeholder={t("PETS.weight_measure_placeholder") as string}
                   bordered
                   name="weight_measure"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.weight_measure}
                   data={[
                     {
                       text: onTranslate("label_kg"),
@@ -336,7 +335,7 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
               <div>
                 <Input
                   label={t("PETS.allergies")}
-                  placeholder={t("PETS.allergies_placeholder")}
+                  placeholder={t("PETS.allergies_placeholder") as string}
                   type="text"
                   bordered
                   name="allergy"

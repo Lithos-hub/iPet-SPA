@@ -13,6 +13,7 @@ import { modalSlice } from "./slices/modalSlice";
 import { alertMessageSlice } from "./slices/alertMessageSlice";
 
 import { userSlice } from "./slices/userSlice";
+import { eventsApi } from "@/services/apis/eventsApi";
 
 export const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
     [vetsApi.reducerPath]: vetsApi.reducer,
     [contactsApi.reducerPath]: contactsApi.reducer,
     [notesApi.reducerPath]: notesApi.reducer,
+    [eventsApi.reducerPath]: eventsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -36,7 +38,8 @@ export const store = configureStore({
       .concat(petsApi.middleware)
       .concat(vetsApi.middleware)
       .concat(contactsApi.middleware)
-      .concat(notesApi.middleware),
+      .concat(notesApi.middleware)
+      .concat(eventsApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -4,7 +4,7 @@
         "get_started": "Registrarme gratis",
         "have_account": "Ya tengo una cuenta",
         "title_1": "100% gratis y multiplataforma",
-        "subtitle_1": "iPet es gratis, y estará disponible para la web, android o iOS.",
+        "subtitle_1": "iPet es gratis, y estará disponible para la web, Android y iOS.",
         "title_2": "Fácil de usar",
         "subtitle_2": "iPet cuenta con una interfaz moderna e intuitiva.",
         "title_3": "Gestiona y controla",
@@ -32,6 +32,9 @@
             },
             "NOTIFICATION": {
                 "title": "¡Atención!"
+            },
+            "SELECT_OPTION": {
+                "title": "Selecciona una opción"
             }
         },
         "ALERT_MESSAGE": {
@@ -71,7 +74,8 @@
             "pet_name": "El nombre es obligatorio",
             "pet_breed": "La raza es obligatoria",
             "pet_birthday": "La fecha de nacimiento es obligatoria",
-            "pet_color": "El color es obligatorio"
+            "pet_color": "El color es obligatorio",
+            "event_title": "El título es obligatorio"
         },
         "DATES": {
             "year_one": "{{count}} año",
@@ -132,11 +136,19 @@
     "CALENDAR": {
         "CREATE": "Añadir evento",
         "EDIT": "Editar evento",
+        "DELETE": "Borrar evento",
         "title": "Calendario",
         "start_date": "Fecha inicio",
         "end_date": "Fecha fin",
         "event_title": "Título",
-        "event_desc": "Descripción",
+        "event_title_placeholder": "Título del evento",
+        "event_description": "Descripción",
+        "event_description_placeholder": "Descripción del evento",
+        "event_color": "Color del evento",
+        "event_selection_type": "Seleccionar fecha única o rango",
+        "event_start_date": "Fecha de inicio",
+        "event_event_date": "Fecha del evento",
+        "event_end_date": "Fecha de fin",
         "UI": {
             "allDay": "Todo el día",
             "previous": "<",
@@ -188,7 +200,9 @@
         "NOTES": {
             "description": "Descripción *",
             "description_placeholder": "Descripción de la nota *",
-            "no_data": "¡No tienes notas registradas! Rellena el formulario superior y pulsa sobre el botón"
+            "no_data": "¡No tienes notas registradas! Rellena el formulario superior y pulsa sobre el botón",
+            "tip": "Borra el contenido de una nota o pulsa sobre la chincheta para eliminarla.",
+            "tip-2": "Pulsa sobre la estrella para marcar esa nota como importante."
         }
     }
 }

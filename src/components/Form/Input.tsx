@@ -3,14 +3,10 @@ import { useState } from "react";
 import { InputLayout } from "@/components/Form/InputLayout";
 import { Button } from "@/components/Button";
 
-interface Props {
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  placeholder: string;
-  type: string;
   variant?: string;
   bordered?: boolean;
-  name: string;
-  value: string | number;
   onChange: React.ChangeEventHandler;
   onBlur?: React.FocusEventHandler;
   hasError?: boolean;
@@ -22,15 +18,12 @@ interface Props {
 export const Input = ({
   label,
   placeholder,
-  type,
   variant,
-  name,
-  value,
-  onChange,
   hasError,
   errorMessage,
   icon,
   onIconClick,
+  ...rest
 }: Props) => {
   const [focus, setFocus] = useState(false);
   return (
@@ -47,13 +40,10 @@ export const Input = ({
       <div className="relative">
         <InputLayout isOnFocus={focus}>
           <input
+            {...rest}
             className={`${hasError && "bg-red-100"}
           w-full p-4 shadow-xl rounded focus:outline-none`}
-            name={name}
             placeholder={placeholder}
-            type={type}
-            value={value}
-            onChange={onChange}
             onBlur={() => setFocus(false)}
             onFocus={() => setFocus(true)}
           />

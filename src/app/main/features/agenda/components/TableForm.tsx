@@ -65,7 +65,10 @@ export const TableForm = ({ defineCol, category, textarea }: Props) => {
         });
     }
     if (category === "notes") {
-      createNote(data)
+      createNote({
+        ...data,
+        important: false,
+      })
         .unwrap()
         .then(() => refetch())
         .catch(({ data }) => {
@@ -123,13 +126,7 @@ export const TableForm = ({ defineCol, category, textarea }: Props) => {
                 </div>
               ))}
               <div className="max-w-[40px] mb-3">
-                {/* <Button
-                  variant="primary"
-                  type="button"
-                  onClick={onSave as React.MouseEventHandler}
-                  title={t("AGENDA.save") as string}
-                /> */}
-                <div className="">
+                <div className="flex flex-col gap-2">
                   <Button
                     icon={<AddIcon />}
                     className="h-[40px] w-[40px] text-white bg-primary rounded-full shadow-lg"

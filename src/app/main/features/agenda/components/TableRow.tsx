@@ -4,7 +4,6 @@ import { Formik } from "formik";
 import { TableInput } from "./TableInput";
 import { Button } from "@/components/Button";
 
-import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { InputsRow } from "@/models/interfaces/InputsRow";
@@ -18,6 +17,9 @@ import {
   useUpdateNoteMutation,
   useUpdateVetMutation,
 } from "@/services/apis";
+
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
 
 interface Props {
   data: any;
@@ -45,6 +47,14 @@ export const TableRow = ({ data, category, defineCol, rowIndex }: Props) => {
     );
   };
 
+  const onSetImportant = async () => {
+    await updateNote({
+      ...data,
+      important: !data.important,
+    });
+    refetch();
+  };
+
   const onSubmit = async (data: any) => {
     if (category === "vets") {
       await updateVet(data);
@@ -53,7 +63,6 @@ export const TableRow = ({ data, category, defineCol, rowIndex }: Props) => {
       await updateContact(data);
       refetch();
     } else if (category === "notes") {
-      console.log(data);
       if (data.description) {
         await updateNote(data);
       } else {
@@ -115,11 +124,32 @@ export const TableRow = ({ data, category, defineCol, rowIndex }: Props) => {
           ) : (
             defineCol.map(({ field }, index: number) => (
               <div key={index} className="post-it__wrapper">
-                <div className="post-it relative bg-gradient-to-br from-[#FEFF9C] to-[#FFF740] text-black w-full min-h-[300px] p-5 shadow-lg shadow-[#505050]">
-                  <img
-                    src="/3d-icons/thumbtack-variant.png"
-                    className="h-[60px] absolute top-2 right-2"
-                  />
+                <div className="post-it relative bg-gradient-to-br from-[#FEFF9C] to-[#FFF740] text-black w-full min-h-[300px] p-10 shadow-lg shadow-[#505050]">
+                  <div className="absolute top-0 left-0 p-2 cursor-pointer duration-200 text-slate-900 rounded-br-xl">
+                    <Button
+                      variant="icon"
+                      type="button"
+                      icon={
+                        data.important ? (
+                          <StarIcon color="inherit" fontSize="large" />
+                        ) : (
+                          <StarBorderIcon color="inherit" fontSize="large" />
+                        )
+                      }
+                      className="bg-transparent hover:scale-125"
+                      onClick={onSetImportant as React.MouseEventHandler}
+                    />
+                  </div>
+                  <div className="absolute top-2 right-2 cursor-pointer duration-200 hover:opacity-50">
+                    <img
+                      src="/3d-icons/thumbtack-variant.png"
+                      className="h-[60px]"
+                      onClick={() => {
+                        deleteNote(data.id);
+                        refetch();
+                      }}
+                    />
+                  </div>
                   <textarea
                     {...getFieldProps(field)}
                     className="text-left w-11/12 min-h-[300px] resize-none border-none p-5 pr-[50px] duration-200 bg-transparent focus:bg-white focus:bg-opacity-50 focus:outline-none"

@@ -32,6 +32,9 @@
             },
             "NOTIFICATION": {
                 "title": "Atention!"
+            },
+            "SELECT_OPTION": {
+                "title": "Select an option"
             }
         },
         "ALERT_MESSAGE": {
@@ -71,7 +74,8 @@
             "pet_name": "Name is required",
             "pet_breed": "Breed is required",
             "pet_birthday": "Birthday is required",
-            "pet_color": "Color is required"
+            "pet_color": "Color is required",
+            "event_title": "Title is required"
         },
         "DATES": {
             "year_one": "{{count}} year",
@@ -131,11 +135,19 @@
     "CALENDAR": {
         "CREATE": "Add event",
         "EDIT": "Edit event",
+        "DELETE": "Delete event",
         "title": "Calendar",
         "start_date": "Start date",
         "end_date": "End date",
         "event_title": "Title",
-        "event_desc": "Description",
+        "event_title_placeholder": "Event title",
+        "event_description": "Description",
+        "event_description_placeholder": "Event description",
+        "event_color": "Event color",
+        "event_selection_type": "Select unique date or range",
+        "event_start_date": "Start date",
+        "event_event_date": "Event date",
+        "event_end_date": "End date",
         "UI": {
             "allDay": "All day",
             "previous": "<",
@@ -187,7 +199,12 @@
         "NOTES": {
             "description": "Description *",
             "description_placeholder": "Note description *",
-            "no_data": "You have no notes registered yet! Fill the form from above and click on the Save button"
+            "no_data": "You have no notes registered yet! Fill the form from above and click on the Save button",
+            "tip": "Delete the contents of a note or click on the thumbtack to remove it.",
+            "tip-2": "Click on the star to check that note as important"
+        },
+        "EVENTS": {
+
         }
     }
 }

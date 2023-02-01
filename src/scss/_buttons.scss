@@ -16,7 +16,8 @@
   @apply bg-white border-transparent border border-slate-900 p-3 rounded-full min-w-[125px] text-slate-900 font-bold hover:bg-slate-300 hover:shadow-inner hover:border-transparent duration-200 shadow-xl;
 }
 .btn__danger {
-  @apply bg-red-500 border-transparent border  p-3 rounded-full min-w-[125px] text-white font-bold hover:bg-red-400 hover:shadow-inner hover:border-transparent duration-200 shadow-xl;
+  @include btn;
+  @apply bg-red-500 border-transparent border p-3 min-w-[125px] text-white font-bold hover:bg-red-400 hover:shadow-inner hover:border-transparent duration-200 shadow-xl;
 }
 .btn__icon {
   @apply h-[40px] w-[40px] rounded-full duration-200;

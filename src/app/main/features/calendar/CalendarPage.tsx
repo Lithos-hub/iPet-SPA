@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Calendar, View } from "react-big-calendar";
@@ -9,85 +9,56 @@ import "@/scss/customCalendar/styles.scss";
 import { getMessages, localizer } from "@/helpers";
 
 import { Button } from "@/components/Button";
-import { ModalLayout } from "@/components/Modal/ModalLayout";
 
-import { Input } from "@/components/Form/Input";
-import { TextArea } from "@/components/Form/TextArea";
 import { CalendarEvent } from "@/app/main/features/calendar/components/CalendarEvent";
 
 import { useUIStore } from "@/hooks";
-import { TextField } from "@mui/material";
-
-import dayjs from "dayjs";
-import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 import "dayjs/locale/en";
 import "dayjs/locale/es";
 
 import { NotificationModal } from "@/components/Modal/NotificationModal";
-import { ColorPicker } from "@/components/Form/ColorPicker";
 import { DataDisplay } from "@/components/Modal/DataDisplay";
 import { useGetUserQuery } from "@/services/apis";
 import { User } from "@/models/interfaces/User";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
-
-const DragAndDropCalendar = withDragAndDrop(Calendar);
+import { AddEventForm } from "./components/AddEventForm";
+import { useDeleteEventMutation } from "@/services/apis/eventsApi";
+import dayjs from "dayjs";
+import { useParseDate } from "@/hooks/useParseDate";
+import { CalendarEvent_Backend } from "@/models/interfaces/CalendarEvent";
+import { SelectOptionModal } from "@/components/Modal/SelectOptionModal";
 
 export const CalendarPage = () => {
+  const { format } = useParseDate();
   // RTK
   const { data: user, refetch } = useGetUserQuery();
   const { events: eventsData } = user as User;
+  const [eventId, setEventId] = useState<number | null>(null);
+
+  const [deleteEvent] = useDeleteEventMutation();
 
   const { t } = useTranslation();
 
-  const [formState, setFormState] = useState({
-    start: dayjs(new Date()),
-    bgColor: "bg-neutral-500",
-    allDay: false,
-    end: dayjs(new Date()),
-    title: "",
-    description: "",
-  });
   const [showNotification, setShowNotification] = useState(false);
-
-  const { start, end, title, description, bgColor } = formState;
+  const [showSelectOption, setShowSelectOption] = useState(false);
 
   const [currentView, setCurrentView] = useState(
     localStorage.getItem("view") || "week"
   );
 
-  const { crud } = useSelector((state: RootState) => state.modalStore);
-
   const { setOpenFormModal, setOpenCrudModal, setCloseModals } = useUIStore();
 
-  // const moveEvent = useCallback(
-  //   ({ event, start, end, isAllDay: droppedOnAllDaySlot = false }: any) => {
-  //     const { allDay } = event;
-  //     if (!allDay && droppedOnAllDaySlot) {
-  //       event.allDay = true;
-  //     }
-
-  //     setMyEvents((prev: any[]) => {
-  //       const existing = prev.find((ev) => ev.id === event.id) ?? {};
-  //       const filtered = prev.filter((ev) => ev.id !== event.id);
-  //       return [...filtered, { ...existing, start, end, allDay }];
-  //     });
-  //   },
-  //   [setMyEvents]
-  // );
-
-  // const resizeEvent = useCallback(
-  //   ({ event, start, end }: any) => {
-  //     setMyEvents((prev: any[]) => {
-  //       const existing = prev.find((ev) => ev.id === event.id) ?? {};
-  //       const filtered = prev.filter((ev) => ev.id !== event.id);
-  //       return [...filtered, { ...existing, start, end }];
-  //     });
-  //   },
-  //   [setMyEvents]
-  // );
+  const events = useMemo(() => {
+    return eventsData.map((event) => {
+      return {
+        ...event,
+        start: format(event.start.toString()),
+        end: format(event.end.toString()),
+      };
+    });
+  }, [eventsData]);
 
   const parseEventColor = (tailwindColor: string) => {
     const options = {
@@ -109,52 +80,31 @@ export const CalendarPage = () => {
   };
 
   const onCreateClick = () => {
-    // setActiveEvent({
-    //   _id: 0,
-    //   title: "",
-    //   allDay: false,
-    //   bgColor: "bg-neutral-500",
-    //   start: dayjs(new Date()),
-    //   end: dayjs(new Date()),
-    //   description: "",
-    // });
     setOpenFormModal("CREATE");
   };
 
-  const onInputChange = ({
-    target,
-  }: {
-    target: HTMLInputElement | HTMLTextAreaElement | any;
-  }) => {
-    setFormState({
-      ...formState,
-      [target.name]: target.value,
-    });
-  };
-
-  const onSelect = (event: object) => {
-    // setActiveEvent(event as CalendarEvent);
-    setOpenCrudModal();
+  const onSelect = ({ id }: CalendarEvent_Backend) => {
+    setShowSelectOption(true);
+    setEventId(id);
   };
 
   const onEdit = () => {
-    setCloseModals();
+    setShowSelectOption(false);
     setOpenFormModal("EDIT");
   };
 
-  const onDelete = async () => {
-    setCloseModals();
-    // await deleteEvent(formState as CalendarEvent);
+  const triggerDelete = async () => {
+    setShowSelectOption(false);
+    await deleteEvent(eventId as number);
+    await refetch();
+    setShowNotification(false);
   };
+
+  const showNotificationModal = (bool: boolean) => setShowNotification(bool);
 
   const onViewChange = (event: View) => {
     localStorage.setItem("view", event);
     setCurrentView(event);
-  };
-
-  const onSubmit = async () => {
-    // await startSavingEvent(formState as CalendarEvent);
-    setCloseModals();
   };
 
   return (
@@ -170,14 +120,11 @@ export const CalendarPage = () => {
 
       <main className="bg-white shadow-lg rounded-xl p-5">
         <div className="flex flex-col gap-5">
-          <DragAndDropCalendar
+          <Calendar
             culture="es"
             localizer={localizer}
-            events={eventsData}
+            events={events}
             defaultView={currentView as View}
-            // onEventDrop={moveEvent}
-            // onEventResize={resizeEvent}
-            resizable
             style={{ height: "70vh" }}
             messages={getMessages()}
             components={{
@@ -187,99 +134,37 @@ export const CalendarPage = () => {
               const backgroundColor = parseEventColor(event.bgColor);
               return { style: { backgroundColor } };
             }}
-            onSelectEvent={onSelect}
+            onSelectEvent={(e: unknown) => onSelect(e as CalendarEvent_Backend)}
             onView={onViewChange}
           />
         </div>
       </main>
-
-      <ModalLayout title={t(`CALENDAR.${crud}`)} onAccept={onSubmit}>
-        <form className="flex flex-col gap-5">
-          <div className="flex gap-5">
-            <LocalizationProvider
-              dateAdapter={AdapterDayjs}
-              adapterLocale={localStorage.getItem("i18nextLng") as string}
-            >
-              <DateTimePicker
-                label="Fecha de inicio"
-                value={start}
-                minDate={dayjs("1950-01-01")}
-                onChange={(value) => {
-                  onInputChange({ target: { name: "start", value } });
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
-            <LocalizationProvider
-              dateAdapter={AdapterDayjs}
-              adapterLocale={localStorage.getItem("i18nextLng") as string}
-            >
-              <DateTimePicker
-                label="Fecha de fin"
-                value={end}
-                minDate={start}
-                onChange={(value) => {
-                  onInputChange({ target: { name: "end", value } });
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
-          </div>
-          <hr className="my-5 border-slate-900" />
-
-          <label className="font-medium mr-auto p-2 text-black">Color</label>
-          <ColorPicker
-            onColorClick={(value: string) => {
-              onInputChange({ target: { name: "bgColor", value } });
-            }}
-            activeColor={bgColor}
-          />
-          <Input
-            label="Título"
-            placeholder="Título del evento"
-            type="text"
-            bordered
-            name="title"
-            onChange={onInputChange}
-            value={title}
-          />
-          <TextArea
-            label="Descripción"
-            placeholder="Descripción del evento"
-            bordered
-            name="description"
-            onChange={onInputChange}
-            value={description}
-          />
-        </form>
-      </ModalLayout>
+      <AddEventForm id={eventId as number} />
       <NotificationModal
         open={showNotification}
-        close={() => setShowNotification(false)}
-        onAccept={onDelete}
-        subtitle="Vas a eliminar un evento. Estás seguro?"
+        subtitle="Vas a borrar un evento. ¿Deseas continuar?"
+        close={() => showNotificationModal(false)}
+        onAccept={triggerDelete}
       >
-        <>
-          <div className="flex justify-between gap-5">
-            <DataDisplay
-              title={t("CALENDAR.start_date")}
-              data={dayjs(start).format("DD MMM YYYY HH:mm")}
-            />
-            <DataDisplay
-              title={t("CALENDAR.end_date")}
-              data={dayjs(end).format("DD MMM YYYY HH:mm")}
-            />
-            <DataDisplay
-              title={t("CALENDAR.event_title")}
-              data={title.toString()}
-            />
-            <DataDisplay
-              title={t("CALENDAR.event_desc")}
-              data={description.toString()}
-            />
-          </div>
-        </>
+        <img src="/3d-icons/dog-crying.png" className="h-[200px] mx-auto" />
       </NotificationModal>
+      <SelectOptionModal
+        close={() => setShowSelectOption(false)}
+        open={showSelectOption}
+      >
+        <div className="flex gap-5 justify-between">
+          <Button
+            variant="primary"
+            title={t("CALENDAR.EDIT") as string}
+            onClick={onEdit}
+          />
+          <Button
+            variant="danger"
+            title={t("CALENDAR.DELETE") as string}
+            onClick={triggerDelete}
+          />
+        </div>
+      </SelectOptionModal>
     </>
   );
 };
