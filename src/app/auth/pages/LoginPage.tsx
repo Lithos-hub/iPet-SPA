@@ -15,15 +15,14 @@ import { useState } from "react";
 import { AlertMessage } from "@/components/AlertMessage/AlertMessage";
 import { onOpenAlertMessage } from "@/store/slices/alertMessageSlice";
 import { useLoginMutation } from "@/services/apis";
-import { setUser } from "@/store/slices/userSlice";
+
 import { Auth } from "@/models/interfaces/Auth";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  // const { startLogin } = useAuthStore();
-  const [login, error] = useLoginMutation();
+
+  const [login] = useLoginMutation();
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -55,7 +54,6 @@ export const LoginPage = () => {
       return;
     }
     const { data } = (await login({ email, password })) as Auth;
-    console.log(error);
 
     localStorage.setItem("id", data.user._id);
     localStorage.setItem("token", data.token);

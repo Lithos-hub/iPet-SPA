@@ -82,9 +82,9 @@ export const JoinPage = () => {
   return (
     <>
       <AuthNavbar>
-        <Link to="/join">
+        <Link to="/login">
           <Button
-            title={t("UI.JOIN_LOGIN_RESET.join") as string}
+            title={t("UI.JOIN_LOGIN_RESET.login") as string}
             variant="secondary"
           />
         </Link>
@@ -100,7 +100,9 @@ export const JoinPage = () => {
           >
             <div className="flex flex-col gap-5">
               <Input
-                placeholder={t("UI.JOIN_LOGIN_RESET.email_placeholder")}
+                placeholder={
+                  t("UI.JOIN_LOGIN_RESET.email_placeholder") as string
+                }
                 name="email"
                 label={t("UI.JOIN_LOGIN_RESET.email")}
                 type="email"
