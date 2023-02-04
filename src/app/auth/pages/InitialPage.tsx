@@ -41,7 +41,7 @@ export const InitialPage: FC = () => {
         image: "landing-4",
       },
     ];
-  }, []);
+  }, [t]);
 
   return (
     <div ref={ref} className="relative text-slate-800 overflow-hidden">
