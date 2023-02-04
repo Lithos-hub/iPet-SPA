@@ -1,7 +1,10 @@
+import React, { FC } from "react";
 import PetsIcon from "@mui/icons-material/Pets";
 import { Link } from "react-router-dom";
 
-export const AuthNavbar = ({ children }: any) => {
+export const AuthNavbar: FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
   return (
     <nav className="fixed top-0 left-0 w-full p-10 flex justify-between z-30">
       <Link

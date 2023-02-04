@@ -33,9 +33,10 @@ export const AlertMessage = () => {
         onClose={handleClose}
       >
         <Alert
+          variant="filled"
           onClose={handleClose}
           severity={type as AlertColor}
-          className="fixed bottom-0 left-0 w-full"
+          className="fixed bottom-0 left-0 w-full rounded-none"
         >
           {message}
         </Alert>

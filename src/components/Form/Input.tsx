@@ -42,7 +42,7 @@ export const Input = ({
           <input
             {...rest}
             className={`${hasError && "bg-red-100"}
-          w-full p-4 shadow-xl rounded focus:outline-none`}
+          w-full p-4 shadow-xl rounded focus:outline-none bg-white`}
             placeholder={placeholder}
             onBlur={() => setFocus(false)}
             onFocus={() => setFocus(true)}

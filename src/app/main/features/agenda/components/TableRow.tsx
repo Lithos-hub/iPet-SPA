@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect, useRef, useState } from "react";
+import React, { FC, RefObject, useEffect, useRef, useState } from "react";
 
 import { Formik } from "formik";
 import { TableInput } from "./TableInput";
@@ -28,7 +28,12 @@ interface Props {
   rowIndex: number;
 }
 
-export const TableRow = ({ data, category, defineCol, rowIndex }: Props) => {
+export const TableRow: FC<Props> = ({
+  data,
+  category,
+  defineCol,
+  rowIndex,
+}) => {
   const { refetch } = useGetUserQuery();
 
   const [updateVet] = useUpdateVetMutation();
