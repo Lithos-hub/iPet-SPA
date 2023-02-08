@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vitest/globals", "vite-plugin-pwa/client"],
+    "types": ["vitest/globals"],
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -29,6 +29,5 @@
     "test",
     "test.ts",
     "**/*.spec.ts",
-    "**/*.worker.ts"
   ]
 }
