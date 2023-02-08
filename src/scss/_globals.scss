@@ -1,3 +1,5 @@
+@import "./colors";
+
 body,
 html {
   @apply bg-gradient-to-r bg-slate-100;
@@ -29,4 +31,24 @@ select {
   appearance: none;
   text-indent: 1px;
   text-overflow: "";
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
 }

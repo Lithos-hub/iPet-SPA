@@ -84,6 +84,12 @@
             "month_other": "{{count}} months"
         }
     },
+    "HOME": {
+        "NEXT_APPOINTMENT": "Next appointment",
+        "TIP_OF_THE_DAY": "Tip of the day",
+        "IMPORTANT_NOTES": "Important notes",
+        "NEWS": "News"
+    },
     "PET_DETAILS": {
         "title": "Pet's details"
     },
