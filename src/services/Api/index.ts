@@ -1,4 +1,9 @@
-import axios, { AxiosError, AxiosInstance } from "axios";
+import axios, {
+  AxiosError,
+  AxiosHeaders,
+  AxiosInstance,
+  AxiosRequestConfig,
+} from "axios";
 
 export class Api {
   private static instance: Api;
@@ -9,15 +14,13 @@ export class Api {
       this.client = axios.create({
         baseURL: `${import.meta.env.VITE_API_URL}/api/v1/`,
       });
-      this.client.interceptors.request.use(
-        (config: { headers: Record<string, unknown> }) => {
-          config.headers = {
-            ...config.headers,
-            "x-token": localStorage.getItem("token"),
-          };
-          return config;
-        }
-      );
+      this.client.interceptors.request.use((config) => {
+        (config.headers as AxiosHeaders).set(
+          "x-token",
+          localStorage.getItem("token")
+        );
+        return config;
+      });
       Api.instance = this;
     }
 

@@ -1,6 +1,6 @@
 import { useRef, RefObject } from "react";
 import { Button } from "./Button";
-import { ButtonVariant } from "../types/ButtonVariant";
+import { ButtonVariant } from "@/models/types/ButtonVariant";
 import { useTranslation } from "react-i18next";
 
 interface Props {
