@@ -5,12 +5,19 @@ import detector from "i18next-browser-languagedetector";
 import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
+declare module "i18next" {
+  interface CustomTypeOptions {
+    returnNull: false;
+  }
+}
+
 i18n
   .use(detector)
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    returnNull: false,
     lng: "es",
     fallbackLng: "en",
     debug: false,

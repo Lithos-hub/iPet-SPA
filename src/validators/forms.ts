@@ -10,7 +10,7 @@ const formValidations = {
 };
 
 export const getValidationsByQuery = (query: string[]) => {
-  const auxObj = {};
+  const auxObj: Record<string, unknown> = {};
 
   query.forEach((query: string) => {
     auxObj[query] = formValidations[query as keyof typeof formValidations];
