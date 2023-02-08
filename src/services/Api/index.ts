@@ -9,13 +9,15 @@ export class Api {
       this.client = axios.create({
         baseURL: `${import.meta.env.VITE_API_URL}/api/v1/`,
       });
-      this.client.interceptors.request.use((config) => {
-        config.headers = {
-          ...config.headers,
-          "x-token": localStorage.getItem("token"),
-        };
-        return config;
-      });
+      this.client.interceptors.request.use(
+        (config: { headers: Record<string, unknown> }) => {
+          config.headers = {
+            ...config.headers,
+            "x-token": localStorage.getItem("token"),
+          };
+          return config;
+        }
+      );
       Api.instance = this;
     }
 
