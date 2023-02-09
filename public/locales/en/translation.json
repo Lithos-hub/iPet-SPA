@@ -88,7 +88,9 @@
         "NEXT_APPOINTMENT": "Next appointment",
         "TIP_OF_THE_DAY": "Tip of the day",
         "IMPORTANT_NOTES": "Important notes",
-        "NEWS": "News"
+        "NEWS": "News",
+        "NO_APPOINTMENT": "You have no next appointment",
+        "NO_NOTES": "You have no important notes"
     },
     "PET_DETAILS": {
         "title": "Pet's details"

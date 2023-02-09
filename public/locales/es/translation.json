@@ -88,7 +88,9 @@
         "NEXT_APPOINTMENT": "Próxima cita",
         "TIP_OF_THE_DAY": "Consejo del día",
         "IMPORTANT_NOTES": "Notas importantes",
-        "NEWS": "Noticias"
+        "NEWS": "Noticias",
+        "NO_APPOINTMENT": "No tienes próximas citas",
+        "NO_NOTES": "No tienes notas importantes"
     },
     "PET_DETAILS": {
         "title": "Detalle de la mascota"

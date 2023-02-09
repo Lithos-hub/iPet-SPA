@@ -44,7 +44,13 @@ export const HomePage = () => {
       const today = new Date().getTime();
       return startDates.filter((date) => date > today).shift();
     }
-  }, []);
+  }, [eventsData]);
+
+  const importantNotes = useMemo(() => {
+    if (notesData && notesData.length > 0) {
+      return notesData.filter(({ important }) => important);
+    }
+  }, [notesData]);
 
   return (
     <div className="flex flex-col gap-5">
@@ -59,32 +65,40 @@ export const HomePage = () => {
             <h3 className="text__primary--gradient">
               {t("HOME.NEXT_APPOINTMENT")}
             </h3>
-            <div className="p-5 text-left text-slate-900 bg-white shadow-xl min-h-[300px] min-w-[300px] relative mx-auto">
-              <div
-                className={`${
-                  eventsData.at(0)?.bgColor
-                } p-2 rounded-full h-[30px] w-[30px] absolute right-5 top-5`}
-              ></div>
-              <div className="flex items-center gap-5">
-                <h1 className="text-9xl text-slate-500 opacity-50">
-                  {dayjs(nextAppointmentStart).format("DD")}
-                </h1>
-                <h1 className="text-6xl text-slate-500 capitalize">
-                  {dayjs(nextAppointmentStart).format("MMMM")}
-                </h1>
+            {nextAppointmentStart ? (
+              <div className="p-5 text-left text-slate-900 bg-white shadow-xl min-h-[300px] min-w-[300px] relative mx-auto">
+                <div
+                  className={`${
+                    eventsData.at(0)?.bgColor
+                  } p-2 rounded-full h-[30px] w-[30px] absolute right-5 top-5`}
+                ></div>
+
+                <div className="flex items-center gap-5">
+                  <h1 className="text-9xl text-slate-500 opacity-50">
+                    {dayjs(nextAppointmentStart).format("DD")}
+                  </h1>
+                  <h1 className="text-6xl text-slate-500 capitalize">
+                    {dayjs(nextAppointmentStart).format("MMMM")}
+                  </h1>
+                </div>
+
+                <hr className="mb-5" />
+                <strong className="text-2xl">
+                  {t("CALENDAR.event_title")}
+                </strong>
+                <p className="p-2">{eventsData.at(0)?.title}</p>
+                {eventsData.at(0)?.description && (
+                  <>
+                    <strong className="text-2xl">
+                      {t("CALENDAR.event_description")}
+                    </strong>
+                    <p className="p-2">{eventsData.at(0)?.description}</p>
+                  </>
+                )}
               </div>
-              <hr className="mb-5" />
-              <strong className="text-2xl">{t("CALENDAR.event_title")}</strong>
-              <p className="p-2">{eventsData.at(0)?.title}</p>
-              {eventsData.at(0)?.description && (
-                <>
-                  <strong className="text-2xl">
-                    {t("CALENDAR.event_description")}
-                  </strong>
-                  <p className="p-2">{eventsData.at(0)?.description}</p>
-                </>
-              )}
-            </div>
+            ) : (
+              <p className="text-red-500">{t("HOME.NO_APPOINTMENT")}</p>
+            )}
           </article>
           <article className="bg-white rounded-xl shadow-xl p-5 col-span-2 relative">
             <img
@@ -117,20 +131,21 @@ export const HomePage = () => {
             <h3 className="text__primary--gradient">
               {t("HOME.IMPORTANT_NOTES")}
             </h3>
-            <div className="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mt-5">
-              {notesData.map(
-                (item: Note_Backend) =>
-                  item.important && (
-                    <div
-                      className="post-it relative bg-gradient-to-br 
+            {importantNotes && importantNotes.length > 0 ? (
+              <div className="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mt-5">
+                {importantNotes.map((item: Note_Backend) => (
+                  <div
+                    className="post-it relative bg-gradient-to-br 
                       from-[#FEFF9C] to-[#FFF740] text-black h-[200px] 
                       w-full mx-auto p-5 shadow-lg shadow-[#505050] overflow-y-auto"
-                    >
-                      {item.description}
-                    </div>
-                  )
-              )}
-            </div>
+                  >
+                    {item.description}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-red-500 mt-5">{t("HOME.NO_NOTES")}</p>
+            )}
           </article>
           <article className="bg-white rounded-xl shadow-xl p-5 col-span-1 relative">
             <img
