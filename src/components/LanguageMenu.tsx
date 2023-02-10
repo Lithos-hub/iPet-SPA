@@ -38,12 +38,16 @@ export const LanguageMenu = () => {
       )}
       <div className="relative">
         <Button
+          data-testid="language-button"
           icon={<TranslateIcon />}
           variant="icon_transparent"
           onClick={handleClick}
         />
         {isShowingLanguages && (
-          <div className="absolute left-1/2 -translate-x-1/2 w-auto">
+          <div
+            data-testid="language-menu"
+            className="absolute left-1/2 -translate-x-1/2 w-auto"
+          >
             <div className="bg-white rounded-md shadow-xl text-center text-black relative">
               <ul>
                 <li
@@ -64,23 +68,6 @@ export const LanguageMenu = () => {
             </div>
           </div>
         )}
-        {/* <Menu
-          anchorEl={languageState}
-          open={isShowingLanguages}
-          onClose={handleClose}
-          MenuListProps={{
-            "aria-labelledby": "basic-button",
-          }}
-        >
-          <MenuItem onClick={() => setLanguage("es")}>
-            <img src="/svg/es.svg" className="h-[20px] mr-5" />
-            <span>{t("UI.LANG.es")}</span>
-          </MenuItem>
-          <MenuItem onClick={() => setLanguage("en")}>
-            <img src="/svg/en.svg" className="h-[20px] mr-5" />
-            <span>{t("UI.LANG.en")}</span>
-          </MenuItem>
-        </Menu> */}
       </div>
     </>
   );

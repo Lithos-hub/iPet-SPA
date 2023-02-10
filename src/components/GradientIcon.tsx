@@ -1,7 +1,7 @@
 export const GradientIcon = ({ children }: any) => {
   return (
     <>
-      <svg width={0} height={0}>
+      <svg width={0} height={0} data-testid="gradient-icon">
         <linearGradient
           id="linearColors"
           x1={1}

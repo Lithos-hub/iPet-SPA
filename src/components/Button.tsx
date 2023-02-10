@@ -28,6 +28,7 @@ export const Button: FC<Props> = ({
   };
   return (
     <button
+      data-testid="button"
       {...rest}
       onClick={onClick}
       type={type}

@@ -25,7 +25,12 @@ export const AgendaTabs = () => {
   }, []);
   return (
     <>
-      <Tabs value={value} onChange={handleChange} centered>
+      <Tabs
+        data-testid="agenda-tabs"
+        value={value}
+        onChange={handleChange}
+        centered
+      >
         <Tab
           label={t("AGENDA.vets")}
           onClick={() => navigate("/app/agenda/vets")}

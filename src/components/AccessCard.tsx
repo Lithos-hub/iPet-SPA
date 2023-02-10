@@ -22,7 +22,10 @@ export const AccessCard = ({
 
   const form: RefObject<HTMLFormElement> = useRef(null);
   return (
-    <div className="bg-[#202020] rounded-xl shadow-lg w-full">
+    <div
+      data-testid="access-card"
+      className="bg-[#202020] rounded-xl shadow-lg w-full"
+    >
       <header
         className={`p-5 text-white ${
           (variant === "primary" && "bg-primary") ||
