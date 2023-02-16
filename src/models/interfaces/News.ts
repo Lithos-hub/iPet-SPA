@@ -1,52 +1,46 @@
-export interface Article {
+export interface Source {
+  uri: string;
+  dataType: string;
   title: string;
-  author: string;
-  published_date: string;
-  published_date_precision: string;
-  link: string;
-  clean_url: string;
-  excerpt: string;
-  summary: string;
-  rights: string;
-  rank: number;
-  topic: string;
-  country: string;
-  language: string;
-  authors: string;
-  media: string;
-  is_opinion: boolean;
-  twitter_account: string;
-  _score: number;
-  _id: string;
 }
 
-export interface UserInput {
-  q: string;
-  search_in: string[];
-  lang: string[];
-  not_lang?: any;
-  countries: string[];
-  not_countries?: any;
-  from: string;
-  to?: any;
-  ranked_only: string;
-  from_rank?: any;
-  to_rank: number;
-  sort_by: string;
-  page: number;
-  size: number;
-  sources?: any;
-  not_sources?: any;
-  topic?: any;
-  published_date_precision?: any;
+export interface Author {
+  uri: string;
+  name: string;
+  type: string;
+  isAgency: boolean;
 }
 
-export interface News {
-  status: string;
-  total_hits: number;
+export interface Result {
+  uri: string;
+  lang: string;
+  isDuplicate: boolean;
+  date: string;
+  time: string;
+  dateTime: Date;
+  dateTimePub: Date;
+  dataType: string;
+  sim: number;
+  url: string;
+  title: string;
+  body: string;
+  source: Source;
+  authors: Author[];
+  image: string;
+  eventUri: string;
+  sentiment?: any;
+  wgt: number;
+  relevance: number;
+}
+
+export interface Articles {
+  results: Result[];
+  totalResults: number;
   page: number;
-  total_pages: number;
-  page_size: number;
-  articles: Article[];
-  user_input: UserInput;
+  count: number;
+  pages: number;
+}
+
+export interface NewsApi {
+  articles: Articles;
 }

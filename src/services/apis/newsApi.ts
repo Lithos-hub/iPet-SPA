@@ -2,23 +2,40 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const newsApi = createApi({
   reducerPath: "news",
-  baseQuery: fetchBaseQuery({
-    baseUrl: `https://api.newscatcherapi.com/v2/search`,
-    prepareHeaders: (headers) => {
-      headers.set("x-api-key", import.meta.env.VITE_NEWSCATCHER_API_KEY);
-      return headers;
-    },
-  }),
+  baseQuery: fetchBaseQuery({}),
   tagTypes: ["NEWS"],
   endpoints: (builder) => ({
     getNews: builder.query({
-      query: (query: string) =>
-        `?q=${query}&sort_by=relevancy&lang=${localStorage.getItem(
-          "i18nextLng"
-        )}&page_size=[1:3]`,
+      query: () => ({
+        url: `
+        https://newsapi.ai/api/v1/article/getArticles?query=
+        {"$query":{"$and":[{"$and":[{"keyword":"${
+          localStorage.getItem("i18nextLng") === "es" ? "mascota" : "pet"
+        }","keywordLoc":"body"},{"keyword":"${
+          localStorage.getItem("i18nextLng") === "es" ? "mascotas" : "pets"
+        }","keywordLoc":"body"}]},{"lang":"${
+          localStorage.getItem("i18nextLng") === "es" ? "spa" : "eng"
+        }"}]},"$filter":{"forceMaxDataTimeWindow":"31"}}&resultType=articles&articlesSortBy=date&articlesCount=100&articleBodyLen=-1&apiKey=${
+          import.meta.env.VITE_NEWSAPI_API_KEY
+        }`,
+        method: "GET",
+      }),
+      providesTags: ["NEWS"],
+    }),
+    getTips: builder.query({
+      query: () => ({
+        url: `https://newsapi.ai/api/v1/article/getArticles?query={"$query":{"$and":[{"$and":[{"keyword":"${
+          localStorage.getItem("i18nextLng") === "es" ? "mascotas" : "pet"
+        }","keywordLoc":"body"},{"keyword":"tips","keywordLoc":"body"}]},{"lang":"${
+          localStorage.getItem("i18nextLng") === "es" ? "spa" : "eng"
+        }"}]},"$filter":{"forceMaxDataTimeWindow":"31","dataType":["blog"]}}&resultType=articles&articlesSortBy=date&articlesCount=10&articleBodyLen=-1&apiKey=${
+          import.meta.env.VITE_NEWSAPI_API_KEY
+        }`,
+        method: "GET",
+      }),
       providesTags: ["NEWS"],
     }),
   }),
 });
 
-export const { useGetNewsQuery } = newsApi;
+export const { useGetNewsQuery, useGetTipsQuery } = newsApi;

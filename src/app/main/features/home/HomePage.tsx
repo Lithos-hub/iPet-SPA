@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import PetsIcon from "@mui/icons-material/Pets";
 import { useParseDate } from "@/hooks/useParseDate";
@@ -6,18 +6,21 @@ import { GradientIcon } from "@/components/GradientIcon";
 import { useGetUserQuery } from "@/services/apis";
 import { User } from "@/models/interfaces/User";
 import { Note_Backend } from "@/models/interfaces/Note";
-import { useGetNewsQuery } from "@/services/apis/newsApi";
-import { Article, News } from "@/models/interfaces/News";
+import { useGetNewsQuery, useGetTipsQuery } from "@/services/apis/newsApi";
 import { useTranslation } from "react-i18next";
 
 import { CalendarEvent_Backend } from "@/models/interfaces/CalendarEvent";
 import dayjs from "dayjs";
+import { NewsApi } from "@/models/interfaces/News";
+import { Result } from "@/models/interfaces/News";
 
 export const HomePage = () => {
   const { t } = useTranslation();
   const { format } = useParseDate();
   const { data: user } = useGetUserQuery();
-  const { data: news } = useGetNewsQuery(`"mascotas" OR "mascota"`);
+  const { data: news } = useGetNewsQuery(null);
+  const { data: tips } = useGetTipsQuery(null);
+
   const {
     vets: vetsData,
     notes: notesData,
@@ -25,16 +28,10 @@ export const HomePage = () => {
     events: eventsData,
   } = user as User;
 
-  const tipOfTheDay = useMemo(() => {
-    if (news) {
-      return news.articles.find(
-        (article: Article) =>
-          article.summary.includes(
-            localStorage.getItem("i18nextLng") === "es" ? "consejo" : "tip"
-          ) && article
-      );
-    }
-  }, [news]);
+  const tipOfTheDay = useMemo(
+    () => (tips ? tips.articles.results.at(0) : null),
+    [news]
+  );
 
   const nextAppointmentStart = useMemo(() => {
     if (eventsData && eventsData.length > 0) {
@@ -61,7 +58,6 @@ export const HomePage = () => {
               src={`/3d-icons/calendar-alt.png`}
               className="h-[80px] absolute -top-[40px] -right-5 z-20"
             />
-
             <h3 className="text__primary--gradient">
               {t("HOME.NEXT_APPOINTMENT")}
             </h3>
@@ -105,15 +101,18 @@ export const HomePage = () => {
               src={`/3d-icons/bulb.png`}
               className="h-[80px] absolute -top-[40px] -right-5 z-20"
             />
-            <h3 className="text__primary--gradient">
-              {t("HOME.TIP_OF_THE_DAY")}
-            </h3>
+            <h2 className="text__primary--gradient font-bold text-center">
+              {/* {t("HOME.TIP_OF_THE_DAY")} */}
+              {tipOfTheDay && tipOfTheDay.title}
+            </h2>
             <div className="p-5 text-justify">
               {tipOfTheDay && (
                 <>
-                  <h4 className="leading-loose">{tipOfTheDay.summary}</h4>
+                  <h4 className="leading-loose">
+                    {tipOfTheDay.body.slice(0, 500)}
+                  </h4>
                   <a
-                    href={tipOfTheDay.link}
+                    href={tipOfTheDay.url}
                     className="block text-pink-500 font-bold mt-5 hover:underline"
                     target="_blank"
                   >
@@ -154,26 +153,25 @@ export const HomePage = () => {
             />
             <h3 className="text__primary--gradient">{t("HOME.NEWS")}</h3>
             {news ? (
-              news.articles
+              news.articles.results
                 .slice(0, 3)
-                .map(({ title, summary, link }: Article) => {
+                .map(({ title, body, url }: any, index: number) => {
                   return (
-                    <>
-                      <strong
-                        className="p-2 block text-jus
-                      "
-                      >
+                    <div key={index}>
+                      <strong className="p-2 block text-justify">
                         {title}
                       </strong>
-                      <p className="p-2 text-justify">{summary}</p>
+                      <p className="p-2 text-justify">
+                        {body.slice(0, 250)}[...]
+                      </p>
                       <a
-                        href={link}
+                        href={url}
                         className="block text-pink-500 font-bold mb-5 p-2 hover:underline"
                         target="_blank"
                       >
                         Leer mas
                       </a>
-                    </>
+                    </div>
                   );
                 })
             ) : (

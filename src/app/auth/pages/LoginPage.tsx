@@ -106,11 +106,11 @@ export const LoginPage = () => {
                 errorMessage={t(`${passwordValid}`) as string}
               />
 
-              <Link to="/reset" className="text-right">
+              {/* <Link to="/reset" className="text-right">
                 <small className=" font-light underline text-white hover:brightness-200 cursor-pointer">
                   {t("UI.JOIN_LOGIN_RESET.forgot_password") as string}
                 </small>
-              </Link>
+              </Link> */}
             </div>
           </AccessCard>
         </section>
