@@ -135,7 +135,6 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
             const { data } = (await createPet(dataToBackend as Pet)) as {
               data: Pet_Backend;
             };
-            console.log("Created data: ", data);
             if (fileState) {
               const fileResponse = (await FILE_API.uploadFile({
                 file: fileState as File,
