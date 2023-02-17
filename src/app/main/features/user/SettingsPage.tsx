@@ -26,7 +26,7 @@ export const SettingsPage = () => {
         </h2>
       </header>
       <main className="bg-white shadow-lg rounded-xl p-5 dark:bg-slate-700">
-        <h3 className="font-bold dark:text-white">{t("USER.account")}</h3>
+        {/* <h3 className="font-bold dark:text-white">{t("USER.account")}</h3>
         <hr className="my-2 mb-10" />
         <Formik initialValues={accountInitialValues} onSubmit={() => {}}>
           {({
@@ -60,7 +60,7 @@ export const SettingsPage = () => {
               />
             </Form>
           )}
-        </Formik>
+        </Formik> */}
         <h3 className="font-bold dark:text-white">{t("USER.appearance")}</h3>
         <hr className="my-2 mb-10" />
         <Formik initialValues={appearanceInitialValues} onSubmit={() => {}}>
