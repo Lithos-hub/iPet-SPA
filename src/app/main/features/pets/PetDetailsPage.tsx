@@ -53,8 +53,8 @@ export const PetDetailsPage = () => {
     <>
       {data ? (
         <>
-          <header className="flex justify-between items-center mb-5 bg-white py-5 px-5 rounded-xl shadow-lg">
-            <h1 className="text__primary--gradient">
+          <header className="flex justify-between items-center mb-5 bg-white py-5 px-5 rounded-xl shadow-lg dark:bg-slate-700">
+            <h1 className="text__primary--gradient dark:brightness-150">
               {t("PET_DETAILS.title")}
             </h1>
             <h1
@@ -66,13 +66,13 @@ export const PetDetailsPage = () => {
             </h1>
           </header>
           <main className="grid grid-cols-12 gap-5">
-            <div className="col-span-5 rounded-xl p-5 bg-white w-auto h-auto shadow-lg">
+            <div className="col-span-5 rounded-xl p-5 bg-white w-auto h-auto shadow-lg dark:bg-slate-700">
               <img
                 src={i(`${data.imageUrl}`)}
                 className="aspect-square object-cover w-auto rounded-xl shadow-lg"
               />
             </div>
-            <section className="col-span-7 bg-white w-full shadow-lg rounded-xl p-5 grid lg:grid-cols-2 gap-5 text-center items-center">
+            <section className="col-span-7 bg-white w-full shadow-lg rounded-xl p-5 grid lg:grid-cols-2 gap-5 text-center items-center dark:bg-slate-700">
               <PetRowData
                 title={t("PETS.weight")}
                 data={
@@ -113,7 +113,7 @@ export const PetDetailsPage = () => {
                   data.allergies.length > 0 ? (
                     data.allergies.map((allergy, index) => (
                       <li
-                        className="text__primary--gradient list-none"
+                        className="text__primary--gradient list-none dark:brightness-150"
                         key={index}
                       >
                         {index + 1}. {allergy}

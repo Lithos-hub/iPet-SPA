@@ -6,7 +6,6 @@ import { Button } from "@/components/Button";
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   variant?: string;
-  bordered?: boolean;
   onChange: React.ChangeEventHandler;
   onBlur?: React.FocusEventHandler;
   hasError?: boolean;
@@ -29,7 +28,7 @@ export const Input = ({
   return (
     <div className="flex flex-col">
       <label
-        className={`font-medium mr-auto p-2 text-black ${
+        className={`font-medium mr-auto p-2 text-black dark:text-white ${
           (variant === "primary" && "text__primary") ||
           (variant === "secondary" && "text__secondary") ||
           (variant === "tertiary" && "text__tertiary")
@@ -58,7 +57,11 @@ export const Input = ({
           </div>
         )}
       </div>
-      {hasError && <small className="text-red-500 pt-1">{errorMessage}</small>}
+      {hasError && (
+        <small className="text-red-500 dark:text-red-400 pt-1">
+          {errorMessage}
+        </small>
+      )}
     </div>
   );
 };

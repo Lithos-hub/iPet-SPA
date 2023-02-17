@@ -26,7 +26,7 @@ export const Sidemenu = () => {
   ];
 
   return (
-    <nav className="sidemenu-height sticky top-[56px] z-20 h-screen w-[250px] bg-slate-300 shadow-xl text-slate-900">
+    <nav className="sidemenu-height sticky top-[56px] z-20 h-screen w-[250px] bg-slate-300 shadow-xl text-slate-900 dark:bg-slate-700">
       <ul>
         {menu.map(({ title, icon, to }, index) => {
           return (

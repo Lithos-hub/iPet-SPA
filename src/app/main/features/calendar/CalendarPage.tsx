@@ -48,7 +48,7 @@ export const CalendarPage = () => {
     localStorage.getItem("view") || "week"
   );
 
-  const { setOpenFormModal, setOpenCrudModal, setCloseModals } = useUIStore();
+  const { setOpenFormModal } = useUIStore();
 
   const events = useMemo(() => {
     return eventsData.map((event) => {
@@ -118,7 +118,7 @@ export const CalendarPage = () => {
         />
       </header>
 
-      <main className="bg-white shadow-lg rounded-xl p-5">
+      <main className="bg-white shadow-lg rounded-xl p-5 dark:bg-slate-800 dark:text-white">
         <div className="flex flex-col gap-5">
           <Calendar
             culture="es"

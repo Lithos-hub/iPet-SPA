@@ -26,7 +26,7 @@ export const ColorPicker: FC<Props> = ({
   ...rest
 }: Props) => {
   return (
-    <div className="grid grid-cols-6 gap-5 items-center justify-center w-full mt-5 shadow-xl p-5 rounded-xl">
+    <div className="grid grid-cols-6 gap-5 items-center justify-center w-full mt-5 shadow-xl p-5 rounded-xl dark:bg-slate-900">
       {colors.map((color, index) => (
         <div key={index} className="mx-auto">
           <input

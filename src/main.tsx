@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import { store } from "./store";
 import { Provider } from "react-redux";
@@ -16,6 +16,12 @@ import "@fontsource/roboto/700.css";
 import "./i18n";
 
 import { App } from "./App";
+import { toggleMode } from "./utils/DarkModeToggle";
+
+toggleMode();
+
+// Whenever the user explicitly chooses light mode
+localStorage.theme = "light";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

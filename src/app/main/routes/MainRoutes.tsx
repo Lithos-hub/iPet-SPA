@@ -6,12 +6,19 @@ import { PetsPage } from "../features/pets/PetsPage";
 import { CalendarPage } from "../features/calendar/CalendarPage";
 import { AgendaPage } from "../features/agenda/AgendaPage";
 import { PetDetailsPage } from "../features/pets/PetDetailsPage";
-
-import Error404 from "@/app/error404";
+import { SettingsPage } from "../features/user/SettingsPage";
 
 export default function MainRoutes() {
   return (
     <Routes>
+      <Route
+        path="/user/settings"
+        element={
+          <MainLayout>
+            <SettingsPage />
+          </MainLayout>
+        }
+      />
       <Route
         path="/home"
         element={

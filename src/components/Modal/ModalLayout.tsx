@@ -26,7 +26,7 @@ export const ModalLayout = ({ title, children, onAccept, disabled }: Props) => {
             onClick={setCloseModals}
           />
           {/* MODAL */}
-          <div className="h-70vh w-[90vw] md:w-[75vw] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-xl shadow-xl blurFade">
+          <div className="h-70vh w-[90vw] md:w-[75vw] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-xl shadow-xl blurFade dark:bg-slate-800">
             <header className="p-5 text-white bg-primary rounded-t-xl">
               <h3 className="text-center">{title}</h3>
             </header>

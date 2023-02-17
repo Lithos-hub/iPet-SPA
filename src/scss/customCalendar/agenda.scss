@@ -35,7 +35,7 @@
     }
 
     thead > tr > th {
-      @apply p-3 rounded-none text-slate-900 border border-slate-300;
+      @apply p-3 rounded-none text-slate-900 border border-slate-300 dark:text-white;
       text-align: center;
 
       .rbc-rtl & {

@@ -16,7 +16,9 @@ export const AgendaPage = () => {
   return (
     <>
       <header className="flex justify-between items-center mb-5">
-        <h2 className="text__primary--gradient">{t("AGENDA.title")}</h2>
+        <h2 className="text__primary--gradient dark:brightness-150">
+          {t("AGENDA.title")}
+        </h2>
       </header>
       <AgendaTabs />
       <main className="mt-5">

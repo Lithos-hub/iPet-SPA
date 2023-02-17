@@ -13,7 +13,8 @@
   @include btn;
 }
 .btn__tertiary {
-  @apply bg-white border-transparent border border-slate-900 p-3 rounded-full min-w-[125px] text-slate-900 font-bold hover:bg-slate-300 hover:shadow-inner hover:border-transparent duration-200 shadow-xl;
+  @include btn;
+  @apply bg-white p-3 min-w-[125px] text-slate-900 font-bold hover:border border border-transparent hover:border-slate-500 duration-200;
 }
 .btn__danger {
   @include btn;

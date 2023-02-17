@@ -168,11 +168,11 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
               ref={selectImageRef}
               type="file"
               onChange={onSelectedFile}
-              className="hidden"
+              className="hidden "
             />
 
             <div className="flex flex-col relative col-span-1">
-              <label className="font-medium mr-auto p-2 text-black">
+              <label className="font-medium mr-auto p-2 text-black dark:text-white">
                 {t("PETS.image")}
               </label>
               {values.imageUrl && (
@@ -188,7 +188,7 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                   />
                 </div>
               )}
-              <div className="relative max-h-[200px] w-full rounded-xl  duration-200">
+              <div className="relative max-h-[200px] w-full rounded-xl duration-200">
                 {values.imageUrl ? (
                   <img
                     src={i(`${values.imageUrl}`)}
@@ -197,10 +197,10 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                   />
                 ) : (
                   <div
-                    className="h-full w-full border-dashed border-2 border-pink-600 min-h-[200px] rounded-xl cursor-pointer hover:opacity-50"
+                    className="h-full w-full border-dashed border-2 border-pink-600 dark:border-white min-h-[200px] rounded-xl cursor-pointer hover:opacity-50"
                     onClick={onSelectImageClick}
                   >
-                    <strong className="text__primary--gradient absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center max-w-[300px]">
+                    <strong className="text__primary--gradient absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center max-w-[300px] dark:text-white">
                       {fileState ? (
                         <small className="font-medium text__primary text-center mx-auto mt-2 max-w-[300px] overflow-hidden">
                           {(fileState as File).name}
@@ -223,7 +223,6 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                   label={t("PETS.name")}
                   placeholder={t("PETS.name_placeholder") as string}
                   type="text"
-                  bordered
                   name="name"
                   value={values.name}
                   hasError={!!errors.name}
@@ -233,7 +232,6 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                   {...getFieldProps(values.specie)}
                   label={t("PETS.specie")}
                   placeholder={t("PETS.specie_placeholder") as string}
-                  bordered
                   name="specie"
                   data={[
                     {
@@ -255,7 +253,6 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                   label={t("PETS.breed")}
                   placeholder={t("PETS.breed_placeholder") as string}
                   type="text"
-                  bordered
                   value={values.breed}
                   name="breed"
                 />
@@ -264,7 +261,6 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                   label={t("PETS.color")}
                   placeholder={t("PETS.color_placeholder") as string}
                   type="text"
-                  bordered
                   value={values.color}
                   name="color"
                   hasError={!!errors.color}
@@ -273,7 +269,7 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
               </div>
             </div>
             <div>
-              <label className="font-medium p-2 text-black">
+              <label className="font-medium p-2 text-black dark:text-white">
                 {t("PETS.birthday")}
               </label>
               <div className="shadow-lg">
@@ -304,7 +300,6 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                   label={t("PETS.weight")}
                   placeholder={t("PETS.weight_placeholder") as string}
                   type="number"
-                  bordered
                   name="weight"
                   value={values.weight}
                   hasError={!!errors.weight}
@@ -314,7 +309,6 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                   {...getFieldProps(values.weight_measure)}
                   label={t("PETS.weight_measure")}
                   placeholder={t("PETS.weight_measure_placeholder") as string}
-                  bordered
                   name="weight_measure"
                   data={[
                     {
@@ -336,7 +330,6 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                   label={t("PETS.allergies")}
                   placeholder={t("PETS.allergies_placeholder") as string}
                   type="text"
-                  bordered
                   name="allergy"
                   onChange={onInputChange}
                   onBlur={handleBlur}
@@ -367,14 +360,14 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
             </div>
             <div className="flex flex-col gap-5">
               <div>
-                <label className="font-medium mr-auto p-2 text-black">
+                <label className="font-medium mr-auto p-2 text-black dark:text-white">
                   {t("PETS.sex")}
                 </label>
                 <div className="flex justify-center gap-5">
                   <div
-                    className={`p-5 shadow-md rounded-xl cursor-pointer hover:scale-105 duration-200 ${
+                    className={`p-5 shadow-md rounded-xl cursor-pointer hover:scale-105 duration-200 dark:bg-slate-900 ${
                       values.sex === "male" &&
-                      "border shadow-blue-200 bg-sky-100"
+                      "border shadow-blue-200 bg-sky-100 dark:shadow-none dark:bg-sky-200"
                     }`}
                   >
                     <img
@@ -388,9 +381,9 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                     />
                   </div>
                   <div
-                    className={`p-5 shadow-md rounded-xl cursor-pointer hover:scale-105 duration-200 ${
+                    className={`p-5 shadow-md rounded-xl cursor-pointer hover:scale-105 duration-200 dark:bg-slate-900 ${
                       values.sex === "female" &&
-                      "border shadow-pink-200 bg-rose-100"
+                      "border shadow-pink-200 bg-rose-100 dark:shadow-none dark:bg-rose-200"
                     }`}
                   >
                     <img
@@ -406,10 +399,10 @@ export const AddPetForm: FC<Props> = ({ ...props }) => {
                 </div>
               </div>
               <div>
-                <label className="font-medium mr-auto p-2 text-black">
+                <label className="font-medium mr-auto p-2 text-black dark:text-white">
                   {t("PETS.spaying_neutering_status")}
                 </label>
-                <div className="mt-5 text-center">
+                <div className="mt-5 text-center dark:text-white">
                   <FormControl>
                     <RadioGroup
                       row

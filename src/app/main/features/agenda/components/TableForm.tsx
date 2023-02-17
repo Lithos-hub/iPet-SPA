@@ -97,7 +97,7 @@ export const TableForm = ({ defineCol, category, textarea }: Props) => {
                 <div key={index} className="flex-grow">
                   <div
                     key={index}
-                    className="flex-grow font-medium my-2 text__primary--gradient"
+                    className="flex-grow font-medium my-2 text__primary--gradient dark:brightness-150"
                   >
                     {t(`AGENDA.${category.toUpperCase()}.${field}`)}
                   </div>

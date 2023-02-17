@@ -71,7 +71,7 @@ export const PetsPage = () => {
         />
       </header>
 
-      <main className="bg-white shadow-lg rounded-xl p-5">
+      <main className="bg-white shadow-lg rounded-xl p-5 dark:bg-slate-700">
         {petsData.length ? (
           <div className="flex flex-col gap-5">
             {petsData.map((petData: Pet_Backend, index: number) => (
@@ -93,7 +93,7 @@ export const PetsPage = () => {
 
       <NotificationModal
         open={showNotification}
-        subtitle="Vas a borrar una mascota. ¿Deseas continuar?"
+        subtitle={t("PETS.confirm")}
         close={() => showNotificationModal(false)}
         onAccept={triggerDelete}
       >

@@ -51,29 +51,29 @@ export const HomePage = () => {
 
   return (
     <div className="flex flex-col gap-5">
-      <main className="bg-white shadow-lg rounded-xl p-5">
+      <main className="bg-white shadow-lg rounded-xl p-5 dark:bg-slate-700">
         <section className="grid grid-cols-3 bg-primary rounded-xl shadow-xl p-5 gap-5">
-          <article className="bg-white rounded-xl shadow-xl p-5 relative flex flex-col gap-5">
+          <article className="bg-white rounded-xl shadow-xl p-5 relative flex flex-col gap-5 dark:bg-slate-800 dark:text-white">
             <img
               src={`/3d-icons/calendar-alt.png`}
               className="h-[80px] absolute -top-[40px] -right-5 z-20"
             />
-            <h3 className="text__primary--gradient">
+            <h3 className="text__primary--gradient dark:brightness-150">
               {t("HOME.NEXT_APPOINTMENT")}
             </h3>
             {nextAppointmentStart ? (
-              <div className="p-5 text-left text-slate-900 bg-white shadow-xl min-h-[300px] min-w-[300px] relative mx-auto">
+              <div className="p-5 text-left text-slate-900 bg-white shadow-xl min-h-[300px] w-full relative mx-auto dark:bg-slate-900 dark:text-white rounded-xl">
                 <div
                   className={`${
                     eventsData.at(0)?.bgColor
-                  } p-2 rounded-full h-[30px] w-[30px] absolute right-5 top-5`}
+                  } p-2 rounded-full h-[25px] w-[25px] absolute right-5 top-5`}
                 ></div>
 
-                <div className="flex items-center gap-5">
-                  <h1 className="text-9xl text-slate-500 opacity-50">
+                <div className="flex flex-col mb-5">
+                  <h1 className="text-6xl xl:text-8xl text-slate-500 opacity-50 dark:text-white">
                     {dayjs(nextAppointmentStart).format("DD")}
                   </h1>
-                  <h1 className="text-6xl text-slate-500 capitalize">
+                  <h1 className="text-3xl xl:text-6xl text-slate-500 capitalize dark:text-white">
                     {dayjs(nextAppointmentStart).format("MMMM")}
                   </h1>
                 </div>
@@ -96,12 +96,12 @@ export const HomePage = () => {
               <p className="text-red-500">{t("HOME.NO_APPOINTMENT")}</p>
             )}
           </article>
-          <article className="bg-white rounded-xl shadow-xl p-5 col-span-2 relative">
+          <article className="bg-white rounded-xl shadow-xl p-5 col-span-2 relative dark:bg-slate-900 dark:text-white">
             <img
               src={`/3d-icons/bulb.png`}
               className="h-[80px] absolute -top-[40px] -right-5 z-20"
             />
-            <h2 className="text__primary--gradient font-bold text-center">
+            <h2 className="text__primary--gradient font-bold text-center dark:brightness-150">
               {/* {t("HOME.TIP_OF_THE_DAY")} */}
               {tipOfTheDay && tipOfTheDay.title}
             </h2>
@@ -122,12 +122,12 @@ export const HomePage = () => {
               )}
             </div>
           </article>
-          <article className="bg-white rounded-xl shadow-xl p-5 col-span-2 relative">
+          <article className="bg-white rounded-xl shadow-xl p-5 col-span-2 relative dark:bg-slate-900 dark:text-white">
             <img
               src={`/3d-icons/thumbtack.png`}
               className="h-[80px] absolute -top-[40px] -right-5 z-20"
             />
-            <h3 className="text__primary--gradient">
+            <h3 className="text__primary--gradient dark:brightness-150">
               {t("HOME.IMPORTANT_NOTES")}
             </h3>
             {importantNotes && importantNotes.length > 0 ? (
@@ -146,12 +146,14 @@ export const HomePage = () => {
               <p className="text-red-500 mt-5">{t("HOME.NO_NOTES")}</p>
             )}
           </article>
-          <article className="bg-white rounded-xl shadow-xl p-5 col-span-1 relative">
+          <article className="bg-white rounded-xl shadow-xl p-5 col-span-1 relative dark:bg-slate-900 dark:text-white">
             <img
               src={`/3d-icons/news.png`}
               className="h-[80px] absolute -top-[40px] -right-5 z-20"
             />
-            <h3 className="text__primary--gradient">{t("HOME.NEWS")}</h3>
+            <h3 className="text__primary--gradient dark:brightness-150">
+              {t("HOME.NEWS")}
+            </h3>
             {news ? (
               news.articles.results
                 .slice(0, 3)

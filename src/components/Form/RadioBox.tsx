@@ -9,8 +9,8 @@ export const RadioBox: FC<Props> = ({ ...props }) => {
     <>
       <label
         className={`appearance-none inline-flex items-center justify-between w-full px-5 py-2 text-gray-500 
-        bg-white border border-gray-200 rounded-lg cursor-pointer hover:bg-pink-100 duration-200 ${
-          props.checked && "bg-primary  text-pink-100"
+        bg-white border border-gray-200 rounded-lg cursor-pointer hover:bg-pink-100 duration-200 dark:text-slate-900 ${
+          props.checked && "bg-primary text-white"
         }`}
       >
         <input {...props} type="radio" className="hidden peer" />

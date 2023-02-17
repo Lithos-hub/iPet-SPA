@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const baseUrl = "https://newsapi.ai/api/v1/article/getArticles";
+
 export const newsApi = createApi({
   reducerPath: "news",
   baseQuery: fetchBaseQuery({}),
@@ -7,8 +9,7 @@ export const newsApi = createApi({
   endpoints: (builder) => ({
     getNews: builder.query({
       query: () => ({
-        url: `
-        https://newsapi.ai/api/v1/article/getArticles?query=
+        url: `https://newsapi.ai/api/v1/article/getArticles?query=
         {"$query":{"$and":[{"$and":[{"keyword":"${
           localStorage.getItem("i18nextLng") === "es" ? "mascota" : "pet"
         }","keywordLoc":"body"},{"keyword":"${

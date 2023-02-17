@@ -44,7 +44,7 @@
 }
 
 .rbc-header {
-  @apply p-2 text-slate-900 capitalize h-full z-50;
+  @apply p-2 text-slate-900 capitalize h-full z-50 dark:text-white dark:bg-slate-800;
   flex: 1 0 0%;
   text-overflow: ellipsis;
   white-space: nowrap;

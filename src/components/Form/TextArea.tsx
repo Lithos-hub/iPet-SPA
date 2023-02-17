@@ -19,7 +19,7 @@ export const TextArea = ({
   return (
     <div className="flex flex-col">
       <label
-        className={`font-medium mr-auto p-2 ${
+        className={`font-medium mr-auto p-2 dark:text-white ${
           (variant === "primary" && "text__primary") ||
           (variant === "secondary" && "text__secondary") ||
           (variant === "tertiary" && "text__tertiary")

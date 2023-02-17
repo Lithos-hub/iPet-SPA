@@ -134,7 +134,7 @@ export const AddEventForm: FC<Props> = ({ ...props }) => {
               />
             </div>
             <div>
-              <label className="font-medium mr-auto p-2 text-black">
+              <label className="font-medium mr-auto p-2 text-black dark:text-white">
                 {t("CALENDAR.event_color")}
               </label>
               <ColorPicker
@@ -150,7 +150,7 @@ export const AddEventForm: FC<Props> = ({ ...props }) => {
             </div>
 
             <div>
-              <label className="font-medium mr-auto p-2 text-black">
+              <label className="font-medium mr-auto p-2 text-black dark:text-white">
                 {t("CALENDAR.event_selection_type")}
               </label>
               <div className="flex gap-5 mt-5">
@@ -171,12 +171,13 @@ export const AddEventForm: FC<Props> = ({ ...props }) => {
               </div>
             </div>
 
-            <div className="flex gap-5 w-full items-end">
+            <div className="flex gap-5 w-full items-end bg-white p-5 rounded-xl">
               <LocalizationProvider
                 dateAdapter={AdapterDayjs}
                 adapterLocale={localStorage.getItem("i18nextLng") as string}
               >
                 <DateTimePicker
+                  className="text-white"
                   label={`${
                     values.date_type === "select_unique"
                       ? t("CALENDAR.event_event_date")

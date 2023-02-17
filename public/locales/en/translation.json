@@ -92,6 +92,17 @@
         "NO_APPOINTMENT": "You have no next appointment",
         "NO_NOTES": "You have no important notes"
     },
+    "USER": {
+        "title": "Account settings",
+        "account": "Account",
+        "appearance": "Appearance",
+        "dark_mode": "Dark mode",
+        "light_mode": "Light mode",
+        "email": "Email",
+        "email_placeholder": "Write here to change your email",
+        "password": "Password",
+        "password_placeholder": "Write here to change your password"
+    },
     "PET_DETAILS": {
         "title": "Pet's details"
     },
@@ -138,7 +149,8 @@
         "no_data": "You have not registered any pet yet! Click on the 'Add pet' button to start",
         "action_details": "Show more",
         "action_edit": "Edit",
-        "action_delete": "Delete"
+        "action_delete": "Delete",
+        "confirm": "Your are going to delete a pet. Are you sure to continue?"
     },
     "CALENDAR": {
         "CREATE": "Add event",

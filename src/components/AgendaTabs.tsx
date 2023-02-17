@@ -30,6 +30,7 @@ export const AgendaTabs = () => {
         value={value}
         onChange={handleChange}
         centered
+        className="dark:bg-white rounded-xl"
       >
         <Tab
           label={t("AGENDA.vets")}

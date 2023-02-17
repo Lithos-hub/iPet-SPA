@@ -35,7 +35,7 @@ export const VetPage = () => {
           <TableForm defineCol={defineCol} category="vets" />
         </div>
         <hr className="border border-pink-200 my-5" />
-        <div className="shadow-xl p-3">
+        <div className="shadow-xl p-3 dark:bg-slate-900 rounded-xl">
           <Table defineCol={defineCol} category="vets" />
         </div>
       </div>

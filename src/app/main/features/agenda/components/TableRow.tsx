@@ -129,7 +129,7 @@ export const TableRow: FC<Props> = ({
           ) : (
             defineCol.map(({ field }, index: number) => (
               <div key={index} className="post-it__wrapper">
-                <div className="post-it relative bg-gradient-to-br from-[#FEFF9C] to-[#FFF740] text-black w-full min-h-[300px] p-10 shadow-lg shadow-[#505050]">
+                <div className="post-it relative bg-gradient-to-br from-[#FEFF9C] to-[#FFF740] text-black w-full h-[300px] p-10 shadow-lg shadow-[#505050]">
                   <div className="absolute top-0 left-0 p-2 cursor-pointer duration-200 text-slate-900 rounded-br-xl">
                     <Button
                       variant="icon"
@@ -157,7 +157,7 @@ export const TableRow: FC<Props> = ({
                   </div>
                   <textarea
                     {...getFieldProps(field)}
-                    className="text-left w-11/12 min-h-[300px] resize-none border-none p-5 pr-[50px] duration-200 bg-transparent focus:bg-white focus:bg-opacity-50 focus:outline-none"
+                    className="text-left w-11/12 min-h-[250px] resize-none border-none p-5 pr-[50px] duration-200 bg-transparent focus:bg-white focus:bg-opacity-50 focus:outline-none"
                     value={values[field]}
                     onBlur={onSave}
                     name={field}

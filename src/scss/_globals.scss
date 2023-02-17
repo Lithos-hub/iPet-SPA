@@ -1,10 +1,5 @@
 @import "./colors";
 
-body,
-html {
-  @apply bg-gradient-to-r bg-slate-100;
-}
-
 h1 {
   @apply text-4xl font-medium;
 }

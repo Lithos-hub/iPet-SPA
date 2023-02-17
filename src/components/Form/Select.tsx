@@ -35,7 +35,7 @@ export const Select = ({
   return (
     <div className="flex flex-col flex-1 relative">
       <label
-        className={`font-medium mr-auto p-2 text-black ${
+        className={`font-medium mr-auto p-2 text-black dark:text-white ${
           (variant === "primary" && "text__primary") ||
           (variant === "secondary" && "text__secondary") ||
           (variant === "tertiary" && "text__tertiary")
@@ -67,12 +67,16 @@ export const Select = ({
             )
           )}
         </select>
-        <div className="absolute bottom-1 right-3 -translate-y-1/2">
+        <div className="absolute top-8 right-3 -translate-y-1/2">
           <ExpandMoreIcon />
         </div>
       </InputLayout>
 
-      {hasError && <small className="text-red-500 pt-1">{errorMessage}</small>}
+      {hasError && (
+        <small className="text-red-500 dark:text-red-400 pt-1">
+          {errorMessage}
+        </small>
+      )}
     </div>
   );
 };

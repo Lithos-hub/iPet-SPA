@@ -31,7 +31,7 @@ export const NotesPage = () => {
           <InfoIcon className="text-blue-500 mr-2" fontSize="small" />
           <i className="text-sm text-blue-500">{t("AGENDA.NOTES.tip-2")}</i>
         </div>
-        <div className="shadow-xl p-3">
+        <div className="shadow-xl p-5 mt-5 dark:bg-slate-900 rounded-xl">
           <Table defineCol={defineCol} category="notes" />
         </div>
       </div>

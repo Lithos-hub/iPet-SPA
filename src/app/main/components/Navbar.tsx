@@ -9,9 +9,7 @@ import { Divider, Menu, MenuItem, MenuProps, styled } from "@mui/material";
 
 import { Button } from "@/components/Button";
 import { LanguageMenu } from "@/components/LanguageMenu";
-// import { useAuthStore } from "../hooks";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store";
+
 import { User } from "@/models/interfaces/User";
 
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
@@ -106,25 +104,17 @@ export const Navbar = () => {
           <div className="p-3 bg-primary text-white text-center m-0">
             <strong>{(user as User).email}</strong>
           </div>
-          <Divider sx={{ my: 0 }} />
-          <MenuItem onClick={handleClose} sx={{ py: 2 }}>
-            <GradientIcon>
-              <AccountBoxIcon
-                className="mr-5"
-                sx={{ fill: "url(#linearColors)" }}
-              />
-            </GradientIcon>
-            <span className="text__primary--gradient">Profile</span>
-          </MenuItem>
-          <MenuItem onClick={handleClose} sx={{ py: 2 }}>
-            <GradientIcon>
-              <SettingsIcon
-                className="mr-5"
-                sx={{ fill: "url(#linearColors)" }}
-              />
-            </GradientIcon>
-            <span className="text__primary--gradient">Account settings</span>
-          </MenuItem>
+          <Link to="/app/user/settings">
+            <MenuItem onClick={handleClose} sx={{ py: 2 }}>
+              <GradientIcon>
+                <SettingsIcon
+                  className="mr-5"
+                  sx={{ fill: "url(#linearColors)" }}
+                />
+              </GradientIcon>
+              <span className="text__primary--gradient">Account settings</span>
+            </MenuItem>
+          </Link>
         </StyledMenu>
       </div>
     </nav>
