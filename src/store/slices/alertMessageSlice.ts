@@ -23,7 +23,7 @@ export const alertMessageSlice = createSlice({
       state.showAlertMessage = true;
       setTimeout(() => {
         state.showAlertMessage = false;
-        state.type = "error";
+        state.type = payload.type;
         state.message = "";
       }, 4500);
     },

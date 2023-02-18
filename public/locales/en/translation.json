@@ -90,7 +90,8 @@
         "IMPORTANT_NOTES": "Important notes",
         "NEWS": "News",
         "NO_APPOINTMENT": "You have no next appointment",
-        "NO_NOTES": "You have no important notes"
+        "NO_NOTES": "You have no important notes",
+        "read_more": "Read more"
     },
     "USER": {
         "title": "Account settings",

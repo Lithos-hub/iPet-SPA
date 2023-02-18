@@ -18,10 +18,9 @@ import "./i18n";
 import { App } from "./App";
 import { toggleMode } from "./utils/DarkModeToggle";
 
-toggleMode();
-
 // Whenever the user explicitly chooses light mode
 localStorage.theme = "light";
+toggleMode();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

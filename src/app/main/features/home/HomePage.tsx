@@ -116,7 +116,7 @@ export const HomePage = () => {
                     className="block text-pink-500 font-bold mt-5 hover:underline"
                     target="_blank"
                   >
-                    Leer mas
+                    {t("HOME.read_more")}
                   </a>
                 </>
               )}
@@ -171,7 +171,7 @@ export const HomePage = () => {
                         className="block text-pink-500 font-bold mb-5 p-2 hover:underline"
                         target="_blank"
                       >
-                        Leer mas
+                        {t("HOME.read_more")}
                       </a>
                     </div>
                   );

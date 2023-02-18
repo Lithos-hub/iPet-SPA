@@ -90,7 +90,8 @@
         "IMPORTANT_NOTES": "Notas importantes",
         "NEWS": "Noticias",
         "NO_APPOINTMENT": "No tienes próximas citas",
-        "NO_NOTES": "No tienes notas importantes"
+        "NO_NOTES": "No tienes notas importantes",
+        "read_more": "Leer más"
     },
     "USER": {
         "title": "Configuración",
@@ -101,7 +102,8 @@
         "email": "Correo electrónico",
         "email_placeholder": "Escribe para cambiar tu correo electrónico",
         "password": "Contraseña",
-        "password_placeholder": "Escribe para cambiar tu contraseña"
+        "password_placeholder": "Escribe para cambiar tu contraseña",
+        "update_success": "¡Datos actualizados correctamente!"
     },
     "PET_DETAILS": {
         "title": "Detalle de la mascota"

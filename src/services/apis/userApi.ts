@@ -29,17 +29,16 @@ export const userApi = createApi({
     }),
     updateUser: builder.mutation({
       query: (body) => ({
-        url: `user/${body._id}`,
+        url: `user`,
         method: "PUT",
         body,
       }),
       invalidatesTags: ["User"],
     }),
     deleteUser: builder.mutation({
-      query: (body) => ({
-        url: `user/${body._id}`,
+      query: () => ({
+        url: `user`,
         method: "DELETE",
-        body,
       }),
       invalidatesTags: ["User"],
     }),
